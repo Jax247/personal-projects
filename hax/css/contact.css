@@ -1,0 +1,71 @@
+h1 {
+    text-align: center;
+}
+
+a {
+    color: inherit;
+}
+h2 {
+    margin: 0;
+}
+
+h4 {
+    margin: 8px;
+}
+
+#content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card {
+    height: 300px;
+    width: 300px;
+    margin: 5px;
+    box-shadow: 0 4px 8px 0 rgb(43, 43, 43);
+    border-radius: 50%;
+    text-align: center;
+    padding: 10px;
+    min-width: 190px;
+}
+.card > .title {
+    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    font-size: 24px;
+    height: 55px;
+}
+
+.contact-msg {
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+.icon {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+}
+
+.card p {
+    margin: 10px;
+}
+
+.card.phone {
+    background-color: rgb(17, 207, 0);
+    color: inherit;
+}
+
+.card.email {
+    background-color: rgb(5, 71, 255);
+    color: inherit;
+}
+
+.card.mail {
+    background-color: #CFB114;
+    color: inherit;
+}
