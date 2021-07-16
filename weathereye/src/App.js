@@ -16,19 +16,28 @@ const DataObject = {
 };
 
 function App() {
+  const [state, setState] = useState({
+    currentLocation: '',
+    degreeType: "F",
+    currentWeather: "",
+    currentTemp: 0,
+    forecastData: [],
+    hasData: false
+  });
   const [desiredLocation, setDesiredLocation] = useState("");
   const [currentLocation, setCurrentLocation] = useState('')
   const [degreeType, changeDegreeType] = useState("F");
   const [currentWeather, setcurrentWeather] = useState("");
   const [currenttemp, setcurrenttemp] = useState(0);
-  const [adminArea, setAdminArea] = useState('')
-  const [Data, setData] = useState(DataObject);
+  // const [adminArea, setAdminArea] = useState('')
+  // const [forecastData, setForecastData] = useState([2, 1])
+  // const [Data, setData] = useState(DataObject);
   const [hasData, setDataLoaded] = useState(false);
 
   // TODO:
   // fetch location data DONE
-  // animate header movements
-  // change main content to cards In Progress
+  // animate header movements DONE?
+  // change main content to cards DONE
   // add switch for hourly
   // add switch for Imperial/Metric DONE
   // add current location data to header DONE
@@ -42,10 +51,16 @@ function App() {
       .then((res) => res.json())
       .then(
         (result) => {
+          setState({
+            ...state, 
+            currentLocation: `${result[0].LocalizedName},${result[0].AdministrativeArea.EnglishName}`
+          })
           setCurrentLocation(`${result[0].LocalizedName},${result[0].AdministrativeArea.EnglishName}`)
+
           // setAdminArea(result[0].AdministrativeArea.EnglishName)
           fetchWeatherData(result[0]["Key"]);
-          console.log(result[0]);
+          fetchDailyData(result[0]["Key"])
+          console.log(state);
         },
         (error) => {
           console.error("Error Obtaining Location", error);
@@ -56,6 +71,7 @@ function App() {
       });
   };
 
+
   const fetchWeatherData = async (Key) => {
     console.log("Key", Key);
 
@@ -65,8 +81,16 @@ function App() {
       .then((res) => res.json())
       .then((result) => {
         console.log(`Weather Data for ${Key}`, result);
+        setState({
+          ...state, 
+          currentWeather: result[0].WeatherText,
+        })
         setcurrentWeather(result[0].WeatherText);
-        setcurrenttemp(result[0].Temperature.Imperial.Value);
+        setState({...state, 
+          currentTemp: result[0].Temperature.Imperial.Value,
+        });
+        setcurrenttemp(result[0].Temperature.Imperial.Value)
+        setcurrentWeather(result[0].WeatherText)
         setDataLoaded(false);
         setDataLoaded(true); // Reset the cards for animation purposes
       })
@@ -74,6 +98,33 @@ function App() {
         console.error(error);
       });
   };
+
+  
+  const fetchDailyData = (key) => {
+
+    fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${apikey}`)
+      .then(res => res.json())
+      .then(result => {
+
+        setState({
+          ...state,
+          forecastData: result.DailyForecasts
+        })
+        
+        // result.DailyForecasts.forEach(Day => {
+        //   state.forecastData.push(Day)
+        // });
+        setDataLoaded(false);
+        setDataLoaded(true); // Reset the cards for animation purposes
+        console.log("Forecast Data", state.forecastData)
+      }, error => {
+        console.error(error)
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+  }
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -91,7 +142,7 @@ function App() {
     <div className="App">
       <header className={`${hasData ? "animateform" : ""}`}>
         <span>
-          <p className="site-name">M.Weather</p>
+          <p className="site-name">Millenia Weather</p>
           <img id="site-icon" src={logo} alt="logo" />
         </span>
 
@@ -105,9 +156,9 @@ function App() {
 
         <form onSubmit={onSubmit}>
           <input
-            className={`${desiredLocation !== "" ? "" : ""}`}
+            className={""}
             type="text"
-            value={desiredLocation}
+            value={state.desiredLocation}
             id="search"
             placeholder="Enter Zip Code or a City Name"
             onChange={(e) => setDesiredLocation(e.target.value)}
@@ -133,36 +184,26 @@ function App() {
             <span className="slider round"></span>
           </label>
         </div>
-        <div className="rightsw">
-          <p className="swlabel">Hourly</p>
-          <label className="switch">
-            <input
-              type="checkbox"
-              onClick={() => {
-                
-              }}
-            />
-            <span className="slider round"></span>
-          </label>
-        </div>
       </div>
 
       <main>
-        <Card
-          degree={degreeType}
-          temp={50}
-          conditions="Partly Cloudy"
-          lo={30}
-          hi={55}
-          day="Monday"
-        />
+        {hasData && (
+          <div className="hourly-data"></div>
+        )}
         {hasData && (
           <span className="card-content">
-            {/* <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card /> */}
+            <p>hi</p>
+            {state.forecastData.map((day, index) => 
+              <Card
+                key={index}
+                degree={degreeType}
+                temp={day.Temperature.Maximum.Value}
+                conditions={day.Day.IconPhrase}
+                lo={day.Temperature.Minimum.Value}
+                hi={day.Temperature.Maximum.Value}
+                day={day.Date}
+              />
+            )}
           </span>
         )}
       </main>
