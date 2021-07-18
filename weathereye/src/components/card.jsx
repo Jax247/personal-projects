@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import "../App.css";
 import icon from '../assets/cloudy.png'
 
-function   importAll(r) {
-  let images = {};
-  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-  return images;
-}
-
 
 class card extends Component {
   constructor(props) {
@@ -40,12 +34,10 @@ class card extends Component {
     return weekdays[daynum]
   }
 
-  // getIcon(){
-  //   let conditions = this.props
-  //   let icons = importAll(require.context('../assets', false, '/\.png/'));
-  //   return icons['cloudy.png'];
-
-  // }
+  getIcon(){
+    let conditions = this.props
+    return icon
+  }
 
   render() {
     const { key, day, conditions, temp, degree, lo, hi } = this.props;
