@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jewan Jeffries</title>
     <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://kit.fontawesome.com/192dd4f710.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css">
-    <script src="js/main.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -48,22 +49,22 @@
         <div id="home-cube">
             <div class="cube">
                 <div class="front">
-                    Front side
+                    <!-- Front side -->
                 </div>
                 <div class="back">
-                    Back side
+                    <!-- Back side -->
                 </div>
                 <div class="top">
-                    Top side
+                    <!-- Top side -->
                 </div>
                 <div class="bottom">
-                    Bottom side
+                    <!-- Bottom side -->
                 </div>
                 <div class="left">
-                    Left side
+                    <!-- Left side -->
                 </div>
                 <div class="right">
-                    Right side
+                    <!-- Right side -->
                 </div>
             </div>
         </div>
@@ -79,7 +80,8 @@
     <section id="about">
         <h1>About Me</h1>
         <div id="about-content">
-            <div id="content-text">
+            <div id="personal-content">
+                <div id="content-text">
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo facere officiis voluptatum at
                     in vitae deserunt? Exercitationem quisquam reprehenderit repellendus incidunt doloremque
@@ -88,7 +90,9 @@
                 </p>
             </div>
 
-            <div id="self-photo"></div>
+            <img id="self-photo" src="assets/IMG_3423.png"/>
+            </div>
+            
 
             <div id="skill-grid">
 
@@ -292,10 +296,15 @@
         </div>
     </section>
     <section id="projects">
+        <h1>Projects</h1>
         <div id="project-grid">
-            <!-- <div class="project-card"> -->
-                <input type="image" src="./assets/Capture.PNG" name="" class="project-card">
-            <!-- </div> -->
+            <div class="project-card">
+                <img src="./assets/Capture.PNG" alt="" >
+                <!-- class="project-card" -->
+                <div class="overlay">
+                    <img class="zoom-icon" src="./assets/pngaaa.com-3712648.png" />
+                </div>
+            </div>
         </div>
     </section>
     <section id="contact">
@@ -321,9 +330,47 @@
             </label>
             
             </div>
-            <button>Send</button>
+            <button>Send<i class="arrow"></i></button>
         </form>
     </section>
+    <footer>
+         <button id="myBtn">Open Modal</button>
+    </footer>
+    <!-- Modal -->
+<div id="project-modal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <header id="modal-header">
+            <p>Some Example</p>
+            <span class="close">&times;</span>
+        </header>
+        <section id="modal-body">
+            <div id="project-details">
+                <div id="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam corporis sequi id exercitationem, tempore, accusamus eveniet nihil iste ipsa culpa, voluptatem odio? Praesentium, exercitationem natus.</div>
+                <div id="project-attributes">
+                    <ul>
+                        <li>
+                            <img src="./assets/tick.png" alt=""/>
+                            Thing 1</li>
+                        <li>
+                            <img src="./assets/tick.png" alt=""/>
+                            Thing 2</li>
+                        <li>                            
+                            <img src="./assets/tick.png" alt=""/>
+                            Thing 3</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="project-demo"></div>
+        </section>
+        <footer id="modal-footer">
+            <a href="#" class="github-link"><i class="fab fa-github"></i>Github</a>
+        </footer>
+        
+    </div>
+  
+  </div>
+  <script type="text/javascript" src="js/main.js"></script>
 
 </body>
 

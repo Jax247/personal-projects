@@ -2,7 +2,7 @@ const projects = [
     { 
         name: 'Millenia Weather',
         type: 'React App',
-        tags: ['React', 'Styled Components'],
+        tags: ['React', 'Styled Components', 'External API'],
         screenshotpath: '../assets/Capture.PNG',
         link: ''
     },
