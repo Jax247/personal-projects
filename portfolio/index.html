@@ -81,6 +81,7 @@
         <h1>About Me</h1>
         <div id="about-content">
             <div id="personal-content">
+                <img id="self-photo" src="assets/IMG_3423.png"/>
                 <div id="content-text">
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo facere officiis voluptatum at
@@ -90,7 +91,6 @@
                 </p>
             </div>
 
-            <img id="self-photo" src="assets/IMG_3423.png"/>
             </div>
             
 
@@ -298,13 +298,13 @@
     <section id="projects">
         <h1>Projects</h1>
         <div id="project-grid">
-            <div class="project-card">
+            <!-- <div id="project-card"class="project-card">
                 <img src="./assets/Capture.PNG" alt="" >
-                <!-- class="project-card" -->
-                <div class="overlay">
+               
+                <div id="overlay" class="overlay">
                     <img class="zoom-icon" src="./assets/pngaaa.com-3712648.png" />
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
     <section id="contact">
@@ -341,27 +341,19 @@
     <!-- Modal content -->
     <div class="modal-content">
         <header id="modal-header">
-            <p>Some Example</p>
+            <p id="modal-title">Some Example</p>
             <span class="close">&times;</span>
         </header>
         <section id="modal-body">
             <div id="project-details">
                 <div id="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam corporis sequi id exercitationem, tempore, accusamus eveniet nihil iste ipsa culpa, voluptatem odio? Praesentium, exercitationem natus.</div>
                 <div id="project-attributes">
-                    <ul>
-                        <li>
-                            <img src="./assets/tick.png" alt=""/>
-                            Thing 1</li>
-                        <li>
-                            <img src="./assets/tick.png" alt=""/>
-                            Thing 2</li>
-                        <li>                            
-                            <img src="./assets/tick.png" alt=""/>
-                            Thing 3</li>
+                    <ul id="tag-list">
+                        
                     </ul>
                 </div>
             </div>
-            <div id="project-demo"></div>
+            <img id="project-demo"/>
         </section>
         <footer id="modal-footer">
             <a href="#" class="github-link"><i class="fab fa-github"></i>Github</a>
@@ -370,6 +362,7 @@
     </div>
   
   </div>
+  <script type="text/javascript" src="js/projects.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 
 </body>
