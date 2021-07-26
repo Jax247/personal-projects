@@ -21,26 +21,26 @@
                 
                 
 
-                <a href="#" src="./assets/pngaaa 4.png" >
+                <a id="home-link" href="#" src="./assets/pngaaa 4.png" >
                    <h2>Home</h2> <img src="./assets/pngaaa 4.png" alt=""></a>
                 
                 
             </li>
             <li>
-                <a href="#"><h2>About</h2><img src="./assets/transparent-avatar-icon-human-icon-person-icon-5d678454ee52e4 1.png" alt=""></a>
+                <a id="about-link" ><h2>About</h2><img src="./assets/transparent-avatar-icon-human-icon-person-icon-5d678454ee52e4 1.png" alt=""></a>
                     
             </li>
             <li>
-                <a href="#"><h2>Projects</h2><img src="./assets/computer-monitor-icon-white-656961 1.png" alt=""></a>
+                <a id="projects-link" ><h2>Projects</h2><img src="./assets/computer-monitor-icon-white-656961 1.png" alt=""></a>
             </li>
             <li>
-                <a href="#"><h2>Contact</h2><img src="./assets/pngaaa 3.png" ></a>
+                <a id="contact-link" ><h2>Contact</h2><img src="./assets/pngaaa 3.png" ></a>
             </li>
         </ul>
     </div>
     <section id="home">
-
-        <div id="home-text">
+        <div id="home-main">
+            <div id="home-text">
             <h1>Jewan Jeffries</h1>
             <br>
             <p>Front End Web Developer with a passion.</p>
@@ -68,6 +68,9 @@
                 </div>
             </div>
         </div>
+        </div>
+        
+       
 
         <div class="down-arrows">
             <div class="chevron"></div>
@@ -84,10 +87,9 @@
                 <img id="self-photo" src="assets/IMG_3423.png"/>
                 <div id="content-text">
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo facere officiis voluptatum at
-                    in vitae deserunt? Exercitationem quisquam reprehenderit repellendus incidunt doloremque
-                    necessitatibus
-                    temporibus!
+                    A NYC based Computer Science graduate from University at Buffalo with love for programming, problem solving and learning. 
+                    I believe in using software as a tool to better the everyday lives of all people. My primary fields of interest 
+                    are Software engineering, web applications, frontend development, and blockchain development.
                 </p>
             </div>
 
@@ -298,43 +300,28 @@
     <section id="projects">
         <h1>Projects</h1>
         <div id="project-grid">
-            <!-- <div id="project-card"class="project-card">
-                <img src="./assets/Capture.PNG" alt="" >
-               
-                <div id="overlay" class="overlay">
-                    <img class="zoom-icon" src="./assets/pngaaa.com-3712648.png" />
-                </div>
-            </div> -->
+            
         </div>
     </section>
     <section id="contact">
         <h1>Get in Touch</h1>
-        <form action="#">
-            <div>
-                
-                <label for="email">
-                    Email
-                    <input type="text" name="email" id="email-field">
-                </label>
-                <label for="subject">
-                     Subject
-                    <input type="text" name="subject" id="subject-field">
-                    
-                </label>
-                
+        <div id="contact-info">
+            <div id="non-socials">
+                <address>
+                    <a class="contact-links" href="mailto:jewan.jeffries@gmail.com" target="_blank"><i class="fas fa-envelope"></i>jewan.jeffries@gmail.com</a><br>
+                    <a class="contact-links" href="tel:+2035636927" ><i class="fas fa-phone"></i>(203) 564-6927</a></br>
+                    <a class="contact-links" href="./assets/Jewan Jeffries Resume.pdf" target="_blank"><i class="fas fa-file-pdf"></i>Downloadable Resume</a>
+                  </address>
             </div>
-            <div>
-                <label for="message">
-                Message
-                <textarea name="message" id="message-field" cols="30" rows="10"></textarea>
-            </label>
-            
+            <div id="socials">
+                <a href="#" class="links github" target="_blank"><i class="fab fa-github"></i>Github</a>
+                <a href="#" class="links linkedIn" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
             </div>
-            <button>Send<i class="arrow"></i></button>
-        </form>
+        </div>
+        
     </section>
     <footer>
-         <button id="myBtn">Open Modal</button>
+        <p>2021</br>Developed by Jewan Jeffries</p>
     </footer>
     <!-- Modal -->
 <div id="project-modal" class="modal">
@@ -346,6 +333,7 @@
         </header>
         <section id="modal-body">
             <div id="project-details">
+                
                 <div id="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam corporis sequi id exercitationem, tempore, accusamus eveniet nihil iste ipsa culpa, voluptatem odio? Praesentium, exercitationem natus.</div>
                 <div id="project-attributes">
                     <ul id="tag-list">
@@ -356,7 +344,8 @@
             <img id="project-demo"/>
         </section>
         <footer id="modal-footer">
-            <a href="#" class="github-link"><i class="fab fa-github"></i>Github</a>
+            
+            <a href="#" class="github-link" target="_blank"><i class="fab fa-github"></i>Github</a>
         </footer>
         
     </div>

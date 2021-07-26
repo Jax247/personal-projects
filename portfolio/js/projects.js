@@ -4,7 +4,7 @@ const projects = [
     type: "React App",
     tags: ["React", "CSS", "External API"],
     screenshotpath: "./assets/Capture.PNG",
-    description: "Weather App made With React and Accuweather API",
+    description: "Weather App made With React, recieving data from the external Accuweather API to tell the weather information of a zip code.",
     link: "#",
   },
   {
@@ -12,7 +12,7 @@ const projects = [
     type: "Personal Portfolio",
     tags: ["HTML", "CSS", "Sass", "JQuery"],
     screenshotpath: "./assets/Capture.PNG",
-    description: "Weather App made With React and Accuweather API",
+    description: "First iteration of my personal site that you're on now! Made entirely in HTML, SCSS/CSS3, and Jquery/Vanilla Javascript.",
     link: "#",
   },
   {
@@ -25,12 +25,10 @@ const projects = [
   },
   {
     name: "LitFit",
-    type: "Login Page Example",
+    type: "Login Form Example",
     tags: ["HTML", "CSS"],
     screenshotpath: "./assets/Capture.PNG",
-    description: "Weather App made With React and Accuweather API",
+    description: "Login form created in HTML/CSS ",
     link: "#",
   },
 ];
-
-// module.exports = projects
