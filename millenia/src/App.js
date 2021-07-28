@@ -196,6 +196,7 @@ function App() {
             {state.forecastData.map((day, index) => 
               <Card
                 key={index}
+                index={index}
                 degree={degreeType}
                 temp={day.Temperature.Maximum.Value}
                 conditions={day.Day.IconPhrase}

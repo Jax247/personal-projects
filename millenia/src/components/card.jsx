@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
-import icon from '../assets/cloudy.png'
-
+import icon from "../assets/cloudy.png";
 
 class card extends Component {
   constructor(props) {
@@ -20,40 +19,61 @@ class card extends Component {
   }
 
   findDay(date) {
-    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"]
-    const daynum = new Date(date).getDay()
-    const today = new Date().getDay()
+    const weekdays = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    const daynum = new Date(date).getDay();
+    const today = new Date().getDay();
 
-    if(daynum - today == 0)
-      return "Today"
+    if (daynum - today === 0) return "Today";
 
-    if(daynum - today == 1)
-      return "Tomorrow"
-    
+    if (daynum - today === 1) return "Tomorrow";
 
-    return weekdays[daynum]
+    return weekdays[daynum];
   }
 
-  getIcon(){
-    let conditions = this.props
-    return icon
+  getIcon() {
+    let conditions = this.props;
+    return icon;
+  }
+
+  decideColor(conditions) {
+    // if it has t-storms display that
+    // if it has cloudy display that
+    // if it has rain display that
+    // if it has snow display that
+
+    let string = conditions.toLowerCase().replace(/ /g, "");
+
+    if (string.includes("t-storms")){
+      return "thunderstorms"
+    }
+
   }
 
   render() {
-    const { key, day, conditions, temp, degree, lo, hi } = this.props;
+    const { index, day, conditions, temp, degree, lo, hi } = this.props;
     return (
       <div className="card-wrapper">
         <h4>{this.findDay(day)}</h4>
         <div
-          className={`card-body ${conditions.toLowerCase().replace(/ /g, "")} index${key}`}
+          className={`card-body ${conditions
+            .toLowerCase()
+            .replace(/ /g, "")} index${index}`}
         >
           <img src={this.getIcon()} alt="" className="card-icon" />
           <h1>
             {this.degreeVerification(temp)}&deg;{degree}
           </h1>
-          <p style={{height: 38}}>{conditions}</p>
-          <p style={{margin: 0}}>lo/hi</p>
-          <p style={{margin: 0}}>
+          <p style={{ height: 38 }}>{conditions}</p>
+          <p style={{ margin: 0 }}>lo/hi</p>
+          <p style={{ margin: 0 }}>
             {this.degreeVerification(lo)}/{this.degreeVerification(hi)}
           </p>
         </div>
