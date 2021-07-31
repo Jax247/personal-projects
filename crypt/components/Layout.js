@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../assets/eth.png";
+import logo from "../assets/kiss.png";
 // Layout for the application at large.
 // Pass in children to get the same layout across multiple pages
 
-const Layout = ({ children, title = "Crypt", image }) => {
+const Layout = ({ children, title = "Crypt", image, details, coinData, percent_change }) => {
   return (
     <div className="layout">
       <Head>
@@ -14,6 +14,8 @@ const Layout = ({ children, title = "Crypt", image }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
+      {/* <div classname="main-link"> */}
+        <h1>Crypt Coin Tracker</h1>
         <Link href="/" passHref>
           <a>
             {image ? (
@@ -23,6 +25,7 @@ const Layout = ({ children, title = "Crypt", image }) => {
             )}
           </a>
         </Link>
+      {/* </div>       */}
       </header>
       <main>{children}</main>
     </div>

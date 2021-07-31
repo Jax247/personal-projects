@@ -5,15 +5,12 @@ import CoinGrid from "../components/CoinGrid.js";
 import { useState } from "react";
 import Layout from "../components/Layout";
 
-// https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=15&page=1&sparkline=false
 export default function Home({ CoinData }) {
   const [state, setState] = useState("");
-  // console.log(CoinData);
+
   const selectedCoins = CoinData.filter((coin) =>
     coin.name.toLowerCase().includes(state.toLowerCase())
   );
-
-  // console.log(selectedCoins);
 
   const change = (e) => {
     e.preventDefault();
