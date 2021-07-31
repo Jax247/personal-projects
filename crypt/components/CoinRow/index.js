@@ -25,13 +25,13 @@ export class coinRow extends Component {
               <h2>{name}</h2>
             </div>
             <div className="coin-symbol">
-              <p>{symbol}</p>
+              <p>{symbol.toUpperCase()}</p>
             </div>
             <div className="coin-price">
-              <p>${price}</p>
+              <p>${price.toLocaleString()}</p>
             </div>
             <div className="coin-volume">
-              <p>${volume}</p>
+              <p>${volume.toLocaleString()}</p>
             </div>
             <div
               className={
@@ -43,7 +43,7 @@ export class coinRow extends Component {
               <p>{Math.round(percent_change * 100) / 100}%</p>
             </div>
 
-            <p className="coin-mktcap">${marketcap}</p>
+            <p className="coin-mktcap">${marketcap.toLocaleString()}</p>
         </a>
           </div>
       </Link>

@@ -52,13 +52,22 @@
 
     .coin-percentage {
       width: 50px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
       position: relative;
       left: 20px;
       &.red {
         color: red;
+        // &::before {
+        // //   content: "-";
+        // }
       }
       &.green {
         color: green;
+        &::before {
+          content: "+";
+        }
       }
     }
     .coin-mktcap {

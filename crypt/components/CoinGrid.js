@@ -8,7 +8,7 @@ const CoinGrid = ({ CoinData }) => {
       <div className="tags">
         {tags.map((tag) => {
           return (
-            <div className={tag.toLowerCase().replace(/ /g, "")}>
+            <div key={tag} className={tag.toLowerCase().replace(/ /g, "")}>
               <p >{tag}</p>
             </div>
           );
