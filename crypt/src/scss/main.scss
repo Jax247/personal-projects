@@ -1,0 +1,86 @@
+body {
+  background-color: rgb(14, 23, 70);
+}
+
+header {
+  width: 100%;
+  display: flex;
+  // min-width: 1024px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    color: #fff;
+  }
+
+  a {
+    position: relative;
+    z-index: 1;
+    height: 130px;
+    width: 130px;
+    .logo {
+      height: 130px;
+      width: 130px;
+      margin-bottom: 15px;
+      animation: rotate 2s linear infinite;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  min-width: 1024px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(14, 23, 70);
+}
+
+.coin-list {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 70%;
+}
+
+.tags {
+  display: flex;
+  flex-flow: row nowrap;
+  color: #fff;
+  justify-content: space-between;
+  width: 100%;
+  text-decoration: underline;
+  margin: 0 10px 0 10px;
+  .coin {
+    position: relative;
+    width: 150px;
+    // left: 10%;
+    text-align: center;
+  }
+  .abv {
+    position: relative;
+    right: 25px;
+  }
+  .price{
+    position: relative;
+    right: 35px;
+  }
+  .change {
+    position: relative;
+    right: 30px;
+  }
+  .marketcap {
+    position: relative;
+    right: 60px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}

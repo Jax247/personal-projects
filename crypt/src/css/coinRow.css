@@ -1,0 +1,122 @@
+.coin-row {
+  background-color: #16265c;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 60px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 7px;
+}
+
+.coin-row:hover {
+  background-color: #1f44c0;
+}
+
+.coin-row div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+}
+
+.coin-row div div {
+  width: 100px;
+  text-align: center;
+}
+
+.coin-row div .coin-tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 150px;
+  color: inherit;
+}
+
+.coin-row div .coin-tag img {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.coin-row div .coin-tag h2 {
+  color: #e2e2e2;
+  margin: 0;
+  padding: 0;
+}
+
+.coin-row div .coin-price,
+.coin-row div .coin-volume,
+.coin-row div .coin-percentage {
+  text-align: left;
+}
+
+.coin-row div .coin-symbol p {
+  width: 100%;
+  text-align: center;
+}
+
+.coin-row div .coin-volume {
+  width: 130px;
+}
+
+.coin-row div .coin-percentage {
+  width: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  left: 20px;
+}
+
+.coin-row div .coin-percentage.red {
+  color: red;
+}
+
+.coin-row div .coin-percentage.green {
+  color: green;
+}
+
+.coin-row div .coin-percentage.green::before {
+  content: "+";
+}
+
+.coin-row div .coin-mktcap {
+  width: 200px;
+  text-align: center;
+}
+/*# sourceMappingURL=coinRow.css.map */
