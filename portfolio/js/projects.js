@@ -2,7 +2,7 @@ const projects = [
   {
     name: "Millenia Weather",
     type: "React App",
-    tags: ["React", "CSS", "External API"],
+    tags: ["React", "CSS", "Accuweather API"],
     screenshotpath: "./assets/Capture.PNG",
     description: "Weather App made With React, recieving data from the external Accuweather API to tell the weather information of a zip code.",
     link: "#",
