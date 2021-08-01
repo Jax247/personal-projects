@@ -7,6 +7,7 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  min-width: 1024px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -23,11 +24,27 @@ header h1 {
   color: #fff;
 }
 
+header a {
+  position: relative;
+  z-index: 1;
+  height: 130px;
+  width: 130px;
+}
+
+header a .logo {
+  height: 130px;
+  width: 130px;
+  margin-bottom: 15px;
+  -webkit-animation: rotate 2s linear infinite;
+          animation: rotate 2s linear infinite;
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  min-width: 1024px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -88,20 +105,6 @@ header h1 {
 .tags .marketcap {
   position: relative;
   right: 60px;
-}
-
-header a {
-  position: relative;
-  z-index: 1;
-  height: 150px;
-  width: 150px;
-}
-
-header a .logo {
-  height: 150px;
-  width: 150px;
-  -webkit-animation: rotate 2s linear infinite;
-          animation: rotate 2s linear infinite;
 }
 
 @-webkit-keyframes rotate {
