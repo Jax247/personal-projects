@@ -1,0 +1,115 @@
+$font-color: #fafafa;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+}
+
+.forms-container {
+    position:absolute;
+    top:0%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.form-container {
+//   background-color: rgb(128, 52, 52);
+//   display: flex;
+//   flex-flow: column nowrap;
+//   align-items: center;
+    display:grid;
+    grid-template-columns: 1fr;
+  position: absolute;
+  top:50%;
+//   transform: translate(-50%, -50%);
+  z-index: 5; // put in front
+  height: 400px;
+  width: 300px;
+  padding: 10px;
+  margin: 5px;
+  h2 {
+    font-size: 2.2rem;
+    margin: 5px 5px 15px 5px;
+  }
+  .login-form, .register-form {
+    width: 100%;
+    height: 80%;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    overflow: hidden;
+
+    .input-field {
+      width: 90%;
+      display: flex;
+      align-items: center;
+      height: 40px;
+      background-color: #adadad;
+      border-radius: 25px;
+      text-align: center;
+      padding: 5px 5px 5px 15px;
+      margin: 8px;
+
+      i {
+        margin-right: 12px;
+      }
+
+      input {
+        background: transparent;
+        border: none;
+        height: 100%;
+        width: 100%;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .login-button {
+      width: 120px;
+      height: 40px;
+      background-color: rgb(66, 21, 226);
+      border: none;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: 0.5s;
+      color: $font-color;
+      &:hover {
+        background-color: rgb(87, 48, 228);
+      }
+    }
+    .socials {
+    //   background-color: #000;
+      .socials-text {
+        color: $font-color;
+        margin: 10px;
+      }
+      .social-links {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          justify-content: space-evenly;
+
+        .socials-link {
+          margin: 5px;
+          height: 40px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          border: 1px solid #000;
+          text-decoration: none;
+          color: #000;
+        }
+      }
+    }
+  }
+}
