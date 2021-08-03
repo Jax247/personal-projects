@@ -89,7 +89,8 @@ function generateModal(e) {
   $("#modal-title").html(`${project.name} - ${project.type}`);
   $("#project-description").html(project.description);
   $("#project-demo").attr("src", `${project.screenshotpath}`);
-  $(".github-link").attr("href", `${project.link}`)
+  $(".github-link").attr("href", `${project.srcLink}`)
+  $("#live-link").attr("href", `${project.liveLink}`)
 
   project.tags.forEach((tag) => {
     $("#tag-list").append(`<li>
