@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
-import icon from "../assets/cloudy.png";
+import icons from "../iconExport.js";
 
 class card extends Component {
   constructor(props) {
@@ -9,8 +9,6 @@ class card extends Component {
       weatherDesc: "",
     };
   }
-
-  componentDidMount() {}
 
   degreeVerification(temp) {
     if (this.props.degree === "F") return temp;
@@ -39,8 +37,9 @@ class card extends Component {
   }
 
   getIcon() {
-    let conditions = this.props;
-    return icon;
+    let icon = this.props;
+
+    return icons[icon];
   }
 
   decideColor(conditions) {
@@ -58,7 +57,7 @@ class card extends Component {
   }
 
   render() {
-    const { index, day, conditions, temp, degree, lo, hi } = this.props;
+    const { index, day, conditions, temp, degree, lo, hi, icon } = this.props;
     return (
       <div className="card-wrapper">
         <h4>{this.findDay(day)}</h4>
@@ -67,7 +66,7 @@ class card extends Component {
             .toLowerCase()
             .replace(/ /g, "")} index${index}`}
         >
-          <img src={this.getIcon()} alt="" className="card-icon" />
+          <img src={icons[icon]} alt="" className="card-icon" />
           <h1>
             {this.degreeVerification(temp)}&deg;{degree}
           </h1>

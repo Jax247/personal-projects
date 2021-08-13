@@ -75,10 +75,10 @@ form {
   width: 100px;
   pointer-events: none;
 }
-.card-icon {
+/* .card-icon {
   height: 40px;
   width: 40px;
-}
+} */
 
 #search {
   /* position: absolute; */
@@ -110,6 +110,15 @@ form {
 
 }
 
+
+.hourly-data {
+  display: flex;
+  /* overflow-x: scroll; */
+  justify-content: space-evenly;
+  height: 40px;
+  width: 80%;
+  /* background-color: #fff; */
+}
 
 .card-body {
   position: relative;
@@ -182,6 +191,7 @@ h4 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 50px;
 }
 
 /* The switch - the box around the slider */

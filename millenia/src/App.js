@@ -2,10 +2,8 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import logo from "./assets/logo.svg";
 import Card from "./components/card";
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-// Accu-Weather API being used to get the weather data
-// Needs: Search, display current weather,
-// and have the list of the weather for days to come
+import icons from './iconExport.js'
+
 
 const apikey = "SrBNFAB1h9zRfpbgQNy4aditlWqUorc6";
 // yonkers location key "Key": "3983_PC"
@@ -29,18 +27,11 @@ function App() {
   const [degreeType, changeDegreeType] = useState("F");
   const [currentWeather, setcurrentWeather] = useState("");
   const [currenttemp, setcurrenttemp] = useState(0);
-  // const [adminArea, setAdminArea] = useState('')
-  // const [forecastData, setForecastData] = useState([2, 1])
-  // const [Data, setData] = useState(DataObject);
   const [hasData, setDataLoaded] = useState(false);
+  const [hourlyData, setHourlyData] = useState([])
 
   // TODO:
-  // fetch location data DONE
-  // animate header movements DONE?
-  // change main content to cards DONE
-  // add switch for hourly
-  // add switch for Imperial/Metric DONE
-  // add current location data to header DONE
+
 
   const fetchLocationData = async () => {
     // location comes in as a zipcode number or string
@@ -56,10 +47,11 @@ function App() {
             currentLocation: `${result[0].LocalizedName},${result[0].AdministrativeArea.EnglishName}`
           })
           setCurrentLocation(`${result[0].LocalizedName},${result[0].AdministrativeArea.EnglishName}`)
+          fetchWeatherData(result[0]["Key"]);
+          fetchDailyData(result[0]["Key"]);
+          fetchHourlyData(result[0]["Key"]);
 
           // setAdminArea(result[0].AdministrativeArea.EnglishName)
-          fetchWeatherData(result[0]["Key"]);
-          fetchDailyData(result[0]["Key"])
           console.log(state);
         },
         (error) => {
@@ -100,20 +92,20 @@ function App() {
   };
 
   
-  const fetchDailyData = (key) => {
+  const fetchDailyData = async (key) => {
 
-    fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${apikey}`)
+    await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${apikey}`)
       .then(res => res.json())
       .then(result => {
 
-        setState({
-          ...state,
-          forecastData: result.DailyForecasts
-        })
+        // setState({
+        //   ...state,
+        //   forecastData: result.DailyForecasts
+        // })
         
-        // result.DailyForecasts.forEach(Day => {
-        //   state.forecastData.push(Day)
-        // });
+        result.DailyForecasts.forEach(Day => {
+          state.forecastData.push(Day)
+        });
         setDataLoaded(false);
         setDataLoaded(true); // Reset the cards for animation purposes
         console.log("Forecast Data", state.forecastData)
@@ -126,10 +118,48 @@ function App() {
 
   }
 
-  const onSubmit = async (e) => {
+  const fetchHourlyData = async (key) => {
+
+    await fetch(`http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${key}?apikey=${apikey}`)
+    .then(res=>res.json())
+    .then(result => {
+      console.log("Hourly Data", result)
+      // get hour, temp, conditions for the hour 
+      let arr = [];
+      let obj;
+      let d
+
+      result.forEach(data => {
+        d = new Date(data.DateTime).getHours()
+        if(d > 12){
+          d = `${d - 12}PM`
+        }
+        else if (d === 0) {
+          d = `${12}AM`
+        }
+        else {
+          d = `${d}AM`
+        }
+
+        // console.log(d)
+        obj = { 
+          hour: d,
+          temp: data.Temperature.Value,
+          conditions: data.IconPhrase,
+          icon: data.WeatherIcon,
+        }        
+
+        arr.push(obj);
+      });
+
+      setHourlyData(arr) 
+    })
+  }
+
+  const onSubmit = (e) => {
     e.preventDefault();
     console.log("ClassList", e.target.classList);
-    await fetchLocationData();
+    fetchLocationData();
   };
 
   const degreeVerification = (temp) => {
@@ -188,11 +218,18 @@ function App() {
 
       <main>
         {hasData && (
-          <div className="hourly-data"></div>
+          <div className="hourly-data">
+          {hourlyData.map((data, index) =>
+            <div className="hour-block" key={index}>
+              <p>{data.hour}</p>
+              <img src={icons[data.icon]} alt={data.icon}/>
+              <p>{degreeVerification(data.temp)}&deg;</p>
+            </div>
+          )}
+          </div>
         )}
         {hasData && (
           <span className="card-content">
-            <p>hi</p>
             {state.forecastData.map((day, index) => 
               <Card
                 key={index}
@@ -203,6 +240,7 @@ function App() {
                 lo={day.Temperature.Minimum.Value}
                 hi={day.Temperature.Maximum.Value}
                 day={day.Date}
+                icon={day.Day.Icon}
               />
             )}
           </span>
