@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
-
 import SignInImage from "../assets/1282794.jpeg";
-
 const cookies = new Cookies();
+const DEV_BUILD = false;
+let url = DEV_BUILD ? 'http://localhost:4000/auth' : 'http://page-mej.herokuapp.com/auth'
 
 const initialState = {
   fullName: "",
@@ -22,7 +22,6 @@ const Auth = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const url = "http://localhost:4000/auth";
     const { username, password, phoneNumber, avatarUrl } = formData;
 
     const {
@@ -54,8 +53,6 @@ const Auth = () => {
 
   const testAccount = async (e) => {
     e.preventDefault();
-
-    const url = "http://localhost:4000/auth";
 
     const testAccounts = ['jsonkale', 'drbais', 'drkasik', 'drdias', 'nursebrown']
     const username = testAccounts[Math.floor(Math.random() * testAccounts.length)]
