@@ -1,11 +1,61 @@
-import React from 'react'
+import React from "react";
+import { Channel, useChatContext, MessageTeam } from "stream-chat-react";
 
-const ChannelContainer = () => {
+import { ChannelInner, CreateChannel, EditChannel, CustomMessage } from "./";
+
+const ChannelContainer = ({
+  isCreatingChannel,
+  setIsCreatingChannel,
+  isEditingChannel,
+  setIsEditingChannel,
+  createType,
+}) => {
+  const { channel } = useChatContext();
+
+  if (isCreatingChannel) {
     return (
-        <div>
-            Channel
-        </div>
-    )
-}
+      <div className="channel__container">
+        <CreateChannel
+          createType={createType}
+          setIsCreatingChannel={setIsCreatingChannel}
+        />
+      </div>
+    );
+  }
+  if (isEditingChannel) {
+    return (
+      <div className="channel__container">
+        <EditChannel
+          createType={createType}
+          setIsEditingChannel={setIsEditingChannel}
+        />
+      </div>
+    );
+  }
 
-export default ChannelContainer
+  const EmptyState = () => (
+    <div className="channel-empty__container">
+      <p className="channel-empty__first">Beginning of chat</p>
+      <p className="channel-empty__second">
+        {" "}
+        Send messages, attachments, links emojis, and more
+      </p>
+    </div>
+  );
+
+  return (
+    <div className="channel__container">
+      <Channel
+        EmptyStateIndicator={EmptyState}
+        message={(messageProps, index) => (
+          // <MessageTeam key={index} {...messageProps} />
+          <CustomMessage/>
+        )}
+      >
+        <ChannelInner setIsEditingChannel={setIsEditingChannel} />
+      </Channel>
+    </div>
+  );
+};
+
+export default ChannelContainer;

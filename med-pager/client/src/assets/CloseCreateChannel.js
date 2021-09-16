@@ -1,15 +1,28 @@
 import React from 'react';
 
-export const CloseCreateChannel = ({ setIsCreating, setIsEditing }) => (
+// const rotate = ({isActive}) =>{
+//   if (isActive) {return 'rotate'}
+//   else {return ''}
+// }
+
+export const CloseCreateChannel = ({ setIsCreating, setIsEditing, isActive }) => (
   <svg
     width='32'
     height='32'
     viewBox='0 0 32 32'
+    className={isActive ? 'rotate' : ''}
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
     onClick={() => {
-      if (setIsCreating) setIsCreating(false);
-      if (setIsEditing) setIsEditing(false);
+      if (setIsCreating) {
+        setIsCreating(false);
+        isActive = false;
+      }
+      if (setIsEditing) {
+        setIsEditing(false);
+        isActive = false;
+      }
+
     }}
   >
     <path
