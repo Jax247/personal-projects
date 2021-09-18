@@ -19,8 +19,8 @@ export const historyOptions = {
       ticks: {
         color: "rgb(255, 255, 255)", // this here
         font: {
-            size:  14,
-        }
+          size: 14,
+        },
       },
       gridLines: {
         display: false,
@@ -30,8 +30,8 @@ export const historyOptions = {
       ticks: {
         color: "rgb(255, 255, 255)", // this here
         font: {
-            size:  18,
-        }
+          size: 18,
+        },
       },
       gridLines: {
         display: false,
@@ -69,9 +69,8 @@ const Coin = ({ match }) => {
   const [mounted, flipM] = useState(false);
   const [allData, setData] = useState([]);
   const [coinData, setCoinData] = useState(null);
-  const [init, setInit] = useState(false);
+  // const [init, setInit] = useState(false);
   let history = useHistory();
-  const size = useWindowSize();
 
   useEffect(() => {
     const fetchCoinData = async () => {
@@ -97,40 +96,6 @@ const Coin = ({ match }) => {
     }
   };
 
-  const timecalc = (dif) => {
-    let d = new Date(dif);
-    let hours = d.getHours();
-
-    if (hours > 12) return `${hours - 12} PM`;
-
-    if (hours === 0) hours = 12;
-
-    return `${hours} AM`;
-  };
-
-  const daycalc = (dif) => {
-    console.log(dif);
-    const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    return weekDays[dif];
-  };
-
-  const monthcalc = (dif) => {
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sept",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    return months[dif];
-  };
 
   const generateChart = (data) => {
     const today = new Date();
@@ -147,22 +112,13 @@ const Coin = ({ match }) => {
 
         switch (timeFormat) {
           case 0:
-            // 24h, data broken into 289 portions. Find good break point
-            dif = today.getTime() - (today.getTime() - res.getTime());
-            if (index % 15 === 0 || index === prices.length - 1)
-              labels.push(`${timecalc(dif)}`);
+            labels.push(res.toLocaleString([], { hour: "numeric" }));
             break;
           case 1:
-            // 7d, 169 is hourly data. Break into days for labels
-            dif = today.getDay() - (today.getDay() - res.getDay());
-            if (index % 30 === 0 || index === prices.length - 1)
-              labels.push(`${daycalc(dif)}`);
+            labels.push(res.toLocaleDateString());
             break;
           case 2:
-            // 1Mo, Daily data break up into daily intervals
-            dif = today.getDate() - (today.getDate() - res.getDate());
-            if (index % 30 === 0 || index === prices.length - 1)
-              labels.push(`${monthcalc(res.getMonth())} ${dif}`);
+            labels.push(res.toLocaleDateString());
             break;
           default:
             break;
@@ -171,7 +127,7 @@ const Coin = ({ match }) => {
         labels.push("");
       }
     });
-    console.log(labels);
+    // console.log(labels);
     setChartData({
       labels: labels,
       datasets: [
@@ -252,7 +208,7 @@ const Coin = ({ match }) => {
     history.push("/");
   };
   if (coinData === null) {
-    return <div></div>;
+    return <div>Loading...</div>;
   } else {
     return (
       // <Layout details={true} coinData={coinData} image={coinData.image.large} setTimeFormat={() => setTimeFormat()} percent_change={()=>percent_change()}>
@@ -313,48 +269,3 @@ const Coin = ({ match }) => {
 };
 
 export default Coin;
-
-function useWindowSize() {
-  // Initialize state with undefined width/height so server and client renders match
-  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-  const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
-  });
-  useEffect(() => {
-    // Handler to call on window resize
-    function handleResize() {
-      // Set window width/height to state
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-    // Call handler right away so state gets updated with initial window size
-    handleResize();
-    // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty array ensures that effect is only run on mount
-  return windowSize;
-}
-
-// export async function getServerSideProps(context) {
-//   const { id } = context.query;
-//   const url = `https://api.coingecko.com/api/v3/coins/${id}`;
-//   const response = await fetch(url);
-//   const coinData = await response.json();
-
-//   try {
-//     // What you pass into props must be consistent with the name
-//     // if not you must export it as the name : data
-//     return {
-//       props: { coinData: coinData },
-//     };
-//   } catch (err) {
-//     return {
-//       notFound: true,
-//     };
-//   }
-// }
