@@ -42,18 +42,34 @@ class card extends Component {
     return icons[icon];
   }
 
-  decideColor(conditions) {
+  decideColor() {
     // if it has t-storms display that
     // if it has cloudy display that
     // if it has rain display that
     // if it has snow display that
 
+    const {conditions} = this.props; 
+
     let string = conditions.toLowerCase().replace(/ /g, "");
+
+    // const weatherArr = ['t-storms', 'showers', 'snow', 'hail', 'sunny', 'rain']
 
     if (string.includes("t-storms")){
       return "thunderstorms"
     }
-
+    else if(string.includes("sunny")){
+      return "sunny"
+    }
+    else if (string.includes("showers")){
+      return "rain";
+    }
+    else if (string.includes("cloudy")){
+      return "cloudy"
+    }
+    else if (string.includes("snow") || string.includes("hail")){
+      return "hail"
+    }
+    
   }
 
   render() {
@@ -62,9 +78,7 @@ class card extends Component {
       <div className="card-wrapper">
         <h4>{this.findDay(day)}</h4>
         <div
-          className={`card-body ${conditions
-            .toLowerCase()
-            .replace(/ /g, "")} index${index}`}
+          className={`card-body ${this.decideColor()} index${index}`}
         >
           <img src={icons[icon]} alt="" className="card-icon" />
           <h1>

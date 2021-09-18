@@ -145,8 +145,8 @@ form {
 }
 
 .card-body.partlycloudy,
-.card-body.intermittentclouds{
-
+.card-body.intermittentclouds,
+.card-body.cloudy{
   background-color: #92A7DD
 }
 

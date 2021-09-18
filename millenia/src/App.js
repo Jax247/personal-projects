@@ -2,36 +2,29 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import logo from "./assets/logo.svg";
 import Card from "./components/card";
-import icons from './iconExport.js'
-
+import icons from "./iconExport.js";
 
 const apikey = "SrBNFAB1h9zRfpbgQNy4aditlWqUorc6";
 // yonkers location key "Key": "3983_PC"
 
-const DataObject = {
-  temp: 90,
-  weatherCondition: "Sunny",
-};
-
 function App() {
   const [state, setState] = useState({
-    currentLocation: '',
+    currentLocation: "",
     degreeType: "F",
     currentWeather: "",
     currentTemp: 0,
     forecastData: [],
-    hasData: false
+    hasData: false,
   });
   const [desiredLocation, setDesiredLocation] = useState("");
-  const [currentLocation, setCurrentLocation] = useState('')
+  const [currentLocation, setCurrentLocation] = useState("");
   const [degreeType, changeDegreeType] = useState("F");
   const [currentWeather, setcurrentWeather] = useState("");
   const [currenttemp, setcurrenttemp] = useState(0);
   const [hasData, setDataLoaded] = useState(false);
-  const [hourlyData, setHourlyData] = useState([])
+  const [hourlyData, setHourlyData] = useState([]);
 
   // TODO:
-
 
   const fetchLocationData = async () => {
     // location comes in as a zipcode number or string
@@ -43,10 +36,12 @@ function App() {
       .then(
         (result) => {
           setState({
-            ...state, 
-            currentLocation: `${result[0].LocalizedName},${result[0].AdministrativeArea.EnglishName}`
-          })
-          setCurrentLocation(`${result[0].LocalizedName},${result[0].AdministrativeArea.EnglishName}`)
+            ...state,
+            currentLocation: `${result[0].LocalizedName},${result[0].AdministrativeArea.EnglishName}`,
+          });
+          setCurrentLocation(
+            `${result[0].LocalizedName},${result[0].AdministrativeArea.EnglishName}`
+          );
           fetchWeatherData(result[0]["Key"]);
           fetchDailyData(result[0]["Key"]);
           fetchHourlyData(result[0]["Key"]);
@@ -63,7 +58,6 @@ function App() {
       });
   };
 
-
   const fetchWeatherData = async (Key) => {
     console.log("Key", Key);
 
@@ -74,15 +68,16 @@ function App() {
       .then((result) => {
         console.log(`Weather Data for ${Key}`, result);
         setState({
-          ...state, 
+          ...state,
           currentWeather: result[0].WeatherText,
-        })
+        });
         setcurrentWeather(result[0].WeatherText);
-        setState({...state, 
+        setState({
+          ...state,
           currentTemp: result[0].Temperature.Imperial.Value,
         });
-        setcurrenttemp(result[0].Temperature.Imperial.Value)
-        setcurrentWeather(result[0].WeatherText)
+        setcurrenttemp(result[0].Temperature.Imperial.Value);
+        setcurrentWeather(result[0].WeatherText);
         setDataLoaded(false);
         setDataLoaded(true); // Reset the cards for animation purposes
       })
@@ -91,70 +86,70 @@ function App() {
       });
   };
 
-  
   const fetchDailyData = async (key) => {
+    await fetch(
+      `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${apikey}`
+    )
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          // setState({
+          //   ...state,
+          //   forecastData: result.DailyForecasts
+          // })
 
-    await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${apikey}`)
-      .then(res => res.json())
-      .then(result => {
-
-        // setState({
-        //   ...state,
-        //   forecastData: result.DailyForecasts
-        // })
-        
-        result.DailyForecasts.forEach(Day => {
-          state.forecastData.push(Day)
-        });
-        setDataLoaded(false);
-        setDataLoaded(true); // Reset the cards for animation purposes
-        console.log("Forecast Data", state.forecastData)
-      }, error => {
-        console.error(error)
-      })
+          result.DailyForecasts.forEach((Day) => {
+            state.forecastData.push(Day);
+          });
+          setDataLoaded(false);
+          setDataLoaded(true); // Reset the cards for animation purposes
+          console.log("Forecast Data", state.forecastData);
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
       .catch((error) => {
         console.error(error);
       });
-
-  }
+  };
 
   const fetchHourlyData = async (key) => {
+    await fetch(
+      `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${key}?apikey=${apikey}`
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        console.log("Hourly Data", result);
+        // get hour, temp, conditions for the hour
+        let arr = [];
+        let obj;
+        let d;
 
-    await fetch(`http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${key}?apikey=${apikey}`)
-    .then(res=>res.json())
-    .then(result => {
-      console.log("Hourly Data", result)
-      // get hour, temp, conditions for the hour 
-      let arr = [];
-      let obj;
-      let d
+        result.forEach((data) => {
+          d = new Date(data.DateTime).getHours();
+          if (d > 12) {
+            d = `${d - 12}PM`;
+          } else if (d === 0) {
+            d = `${12}AM`;
+          } else {
+            d = `${d}AM`;
+          }
 
-      result.forEach(data => {
-        d = new Date(data.DateTime).getHours()
-        if(d > 12){
-          d = `${d - 12}PM`
-        }
-        else if (d === 0) {
-          d = `${12}AM`
-        }
-        else {
-          d = `${d}AM`
-        }
+          // console.log(d)
+          obj = {
+            hour: d,
+            temp: data.Temperature.Value,
+            conditions: data.IconPhrase,
+            icon: data.WeatherIcon,
+          };
 
-        // console.log(d)
-        obj = { 
-          hour: d,
-          temp: data.Temperature.Value,
-          conditions: data.IconPhrase,
-          icon: data.WeatherIcon,
-        }        
+          arr.push(obj);
+        });
 
-        arr.push(obj);
+        setHourlyData(arr);
       });
-
-      setHourlyData(arr) 
-    })
-  }
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -190,7 +185,7 @@ function App() {
             type="text"
             value={state.desiredLocation}
             id="search"
-            placeholder="Enter Zip Code or a City Name"
+            placeholder="Enter Zip Code"
             onChange={(e) => setDesiredLocation(e.target.value)}
           />
           <button className="fill-two" id="search-submit" type="submit">
@@ -199,38 +194,40 @@ function App() {
         </form>
       </header>
 
-      <div className="switches">
-        <div className="leftsw">
-          <p className="swlabel">F/C</p>
-          <label className="switch">
-            <input
-              type="checkbox"
-              onClick={() => {
-                degreeType === "C"
-                  ? changeDegreeType("F")
-                  : changeDegreeType("C");
-              }}
-            />
-            <span className="slider round"></span>
-          </label>
+      {hasData && (
+        <div className="switches">
+          <div className="leftsw">
+            <p className="swlabel">F/C</p>
+            <label className="switch">
+              <input
+                type="checkbox"
+                onClick={() => {
+                  degreeType === "C"
+                    ? changeDegreeType("F")
+                    : changeDegreeType("C");
+                }}
+              />
+              <span className="slider round"></span>
+            </label>
+          </div>
         </div>
-      </div>
+      )}
 
       <main>
         {hasData && (
           <div className="hourly-data">
-          {hourlyData.map((data, index) =>
-            <div className="hour-block" key={index}>
-              <p>{data.hour}</p>
-              <img src={icons[data.icon]} alt={data.icon}/>
-              <p>{degreeVerification(data.temp)}&deg;</p>
-            </div>
-          )}
+            {hourlyData.map((data, index) => (
+              <div className="hour-block" key={index}>
+                <p>{data.hour}</p>
+                <img src={icons[data.icon]} alt={data.icon} />
+                <p>{degreeVerification(data.temp)}&deg;</p>
+              </div>
+            ))}
           </div>
         )}
         {hasData && (
           <span className="card-content">
-            {state.forecastData.map((day, index) => 
+            {state.forecastData.map((day, index) => (
               <Card
                 key={index}
                 index={index}
@@ -242,7 +239,7 @@ function App() {
                 day={day.Date}
                 icon={day.Day.Icon}
               />
-            )}
+            ))}
           </span>
         )}
       </main>
