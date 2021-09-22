@@ -2,4 +2,144 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+    scroll-behavior: smooth;
+}
+
+// section {
+//     height: 100vh;
+// }
+
+header {
+    // position: fixed;
+
+    nav {
+        position: fixed;
+        z-index: 5;
+        background-color: #fff;
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+            width: 200px;
+            margin-left: 50px;
+        }
+
+        .nav-links {
+            width: 55%;
+            margin: 0 20px;
+            list-style: none;
+            color: rgb(24, 86, 255);
+            display: none;
+            justify-content: space-evenly;
+
+            a {
+                text-decoration: none;
+                color: rgb(20, 72, 214);
+            }
+
+            @media (min-width: 800px) {
+                display: flex;
+            }
+        }
+    }
+}
+
+.hero {
+    background: url('../assets/intro-bg.png') center bottom no-repeat;
+    background-size: cover;
+    padding: 150px 0px;
+    display: flex;
+    justify-content: center;
+
+    .container {
+        // width: 100%;
+        margin: 0 auto;
+        padding: 0px 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+
+        img {
+            width: 50%;
+            // height: 20vh;
+            display: flex;
+            flex: 1;
+            order: 1;
+
+            @media (min-width: 1000px) {
+                order: 2;
+            }
+        }
+
+        // .hero-main {
+        //     display: flex;
+        //     flex-direction: column;
+        //     align-items: flex-end;
+        //     // justify-content: flex-end;
+        //     width: 70%;
+        //     text-align: left;
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 30%;
+                text-align: left;
+            }
+
+ 
+                h2 {
+                    color: #fff;
+                    font-size: 48px;
+                    font-weight: 500;
+                }
+
+
+            .hero-cta {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+
+                .hero-btn {
+                    width: 200px;
+                    height: 50px;
+                    text-decoration: none;
+                    color: #fff;
+                    border: 2px solid transparent;
+                    border-radius: 25px;
+                    margin: 10px 5px;
+                    padding: 15px;
+                    transition: 500ms ease all;
+                }
+
+                .get-started {
+                    background-color: #007bff;
+
+                    &:hover {
+                        background: transparent;
+                        border-color: #fff;
+                    }
+                }
+
+                .our-services {
+                    border-color: #fff;
+                    &:hover {
+                        background-color: #007bff;
+                        border-color: transparent;
+                    }
+                }
+
+
+            }
+        // }
+    }
+
 }
