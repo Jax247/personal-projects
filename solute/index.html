@@ -23,29 +23,32 @@
   <!-- Navigation -->
   <header>
     <nav>
-      <img src="./assets/logo.png" alt="NewBiz Logo" class="logo">
+      <a href="#">
+        <img src="./assets/logo.png" alt="NewBiz Logo" class="logo">
+
+      </a>
       <ul class="nav-links">
         <li class="link-item">
           <a href="#">Home</a>
         </li>
         <li class="link-item">
-          <a href="">About Us</a>
+          <a href="#about">About Us</a>
         </li>
         <li class="link-item">
-          <a href="">Services</a>
+          <a href="#services">Services</a>
         </li>
         <li class="link-item">
-          <a href="">Team</a>
+          <a href="#team">Team</a>
         </li>
         <li class="link-item">
-          <a href="">Contact Us</a>
+          <a href="#contact">Contact Us</a>
         </li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section id="Hero" class="hero">
+  <section id="Hero" class="hero" id="hero">
     <div class="container">
       <!-- <div class="hero-main"> -->
       <div class="hero-content">
@@ -60,7 +63,7 @@
     </div>
   </section>
   <!-- About Us -->
-  <section class="about about-1">
+  <section class="about about-1" id="about">
     <div class="container ">
       <h2>
         About Us
@@ -132,7 +135,7 @@
     </div>
   </section>
   <!-- Services -->
-  <section class="services">
+  <section class="services" id="services">
     <div class="container">
       <h2>Services</h2>
       <div class="layout">
@@ -408,7 +411,7 @@
     </div>
   </section>
   <!-- Team -->
-  <section class="team">
+  <section class="team" id="team">
     <div class="container">
       <h2>Team</h2>
       <div class="content flex-row">
@@ -479,6 +482,52 @@
       </div>
     </div>
   </section>
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Want to work with us? fill out below to get started!</p>
+      <form class="contact-form">
+        <div class="flex-row">
+          <input type="search" class="full-name" placeholder="Full Name">
+          <input type="search" class="email-address" placeholder="Email">
+        </div>
+        <input type="search" class="subject" placeholder="Subject">
+        <textarea class="message" placeholder="Message..."></textarea>
+        <button class="btn" type="submit" name="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <ul class="flex-row">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="">About Us</a>
+        </li>
+        <li>
+          <a href="">Services</a>
+        </li>
+        <li>
+          <a href="">Team</a>
+        </li>
+        <li>
+          <a href="">Contact Us</a>
+        </li>
+      </ul>
+      <ul class="flex-row">
+        <li><i class="fab fa-youtube"></i></li>
+        <li><i class="fab fa-twitter"></i></li>
+        <li><i class="fab fa-instagram"></i></li>
+        <li><i class="fab fa-facebook"></i></li>
+        <li><i class="fab fa-dribble"></i></li>
+      </ul>
+      <p>&copy; 2019 NewBiz</p>
+    </div>
+  </footer>
   <!-- Scripts -->
   <script src="owl-caro/jquery.min.js"></script>
   <script src="owl-caro/owl.carousel.min.js"></script>
