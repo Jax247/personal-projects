@@ -6,6 +6,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  min-width: unset;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -31,6 +32,24 @@
   margin-bottom: 20px;
 }
 
+@media (max-width: 460px) {
+  .details-header .main-link h1 {
+    font-size: 24px;
+  }
+}
+
+.details-header .main-link .layout-logo {
+  height: 150px;
+  width: 150px;
+}
+
+@media (max-width: 460px) {
+  .details-header .main-link .layout-logo {
+    height: 100px;
+    width: 100px;
+  }
+}
+
 .coin-chart-btns {
   width: 20%;
   display: -webkit-box;
@@ -39,6 +58,14 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+@media (max-width: 460px) {
+  .coin-chart-btns {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 .coin-chart-btns button {
@@ -51,8 +78,14 @@
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   padding: 5px;
-  color: #0073df;
+  color: #2b44c4;
   font-size: 24px;
+}
+
+@media (max-width: 460px) {
+  .coin-chart-btns button {
+    width: 70px;
+  }
 }
 
 .coin-chart-btns button:hover {
@@ -113,6 +146,13 @@
   border-radius: 10px;
 }
 
+@media (max-width: 460px) {
+  .coin-container {
+    height: 200px;
+    width: 200px;
+  }
+}
+
 .coin-container p {
   text-align: center;
   margin: 5px;
@@ -121,11 +161,6 @@
 
 .coin-container div {
   margin-right: 10px;
-}
-
-.layout-logo {
-  height: 150px;
-  width: 150px;
 }
 
 .coin-percentage {

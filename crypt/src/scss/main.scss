@@ -12,21 +12,22 @@ header {
   h1 {
     color: #fff;
   } 
-
+  
   a {
     position: relative;
     z-index: 1;
     height: 130px;
     width: 130px;
-    .logo {
-      height: 130px;
-      width: 130px;
-      margin-bottom: 15px;
-      animation: rotate 2s linear infinite;
-    }
   }
 } 
 
+.layout-logo {
+  // transform-style: preserve-3d;
+  height: 130px;
+  width: 130px;
+  margin-bottom: 15px;
+  // animation: rotate 2s linear infinite;
+}
 .container {
   display: flex;
   width: 100%;

@@ -31,12 +31,10 @@ header a {
   width: 130px;
 }
 
-header a .logo {
+.layout-logo {
   height: 130px;
   width: 130px;
   margin-bottom: 15px;
-  -webkit-animation: rotate 2s linear infinite;
-          animation: rotate 2s linear infinite;
 }
 
 .container {
