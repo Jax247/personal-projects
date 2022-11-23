@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style><style>
+        main .page-container:nth-child(5) .container {
+           max-width: none;
+         width: 100%;
+         }
+         main .page-container:nth-child(5) {
+         max-width: none;
+         }
+         main .page-container:nth-child(5) .col-lg-1 {
+         display: none;
+         }
+          main .page-container:nth-child(5) .col-lg-11 {
+         max-width: none;
+         -ms-flex-preferred-size: 100%;
+         flex-basis: 100%;
+         padding: 0;
+         }
+         main .page-container:nth-child(5) .carousel .card {
+         max-width: 600px;
+         min-width: 280px;
+         min-height: 350px;
+         }
+         main .page-container:nth-child(5) .carousel {
+         height: 600px;
+         width: 1400px;
+         max-width: 320px;
+         overflow: hidden;
+         text-align: center;
+         position: relative;
+         padding: 0;
+         list-style: none;
+         }
+         @media(max-width: 385px){
+         main .page-container:nth-child(5) .carousel{
+         height: 685px;
+         }
+         }
+         main .page-container:nth-child(5) .carousel .card2 {
+         display: none;
+         }
+         @media (min-width: 375px) {
+         main .page-container:nth-child(5) .carousel {
+         max-width: calc(300px + 45vw * 0.4);
+         }
+         }
+         @media (min-width: 375px) and (min-width: 500px) {
+         main .page-container:nth-child(5) .carousel {
+         max-width: calc(300px + 45vw * 0.8);
+         }
+         }
+         @media (min-width: 375px) and (min-width: 1400px) {
+         main .page-container:nth-child(5) .carousel {
+           max-width: calc(300px + 76vw);
+           }
+           }
+           .carousel__controls,
+           .carousel__activator {
+           display: none;
+           }
+           main .page-container:nth-child(5) .carousel__activator {
+           opacity: 0;
+           }
+           @media (min-width: 320px) {
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(1):checked ~ .carousel__track {
+           -webkit-transform: translateX(0%);
+           transform: translateX(0%);
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(1):checked ~ .carousel__slide:nth-of-type(1) {
+           -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+           transition: opacity 0.5s, -webkit-transform 0.5s;
+           transition: opacity 0.5s, transform 0.5s;
+           transition: opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
+           top: 0;
+           left: 0;
+           right: 0;
+           opacity: 1;
+           -webkit-transform: scale(1);
+           transform: scale(1);
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(1):checked ~ .carousel__controls:nth-of-type(1) {
+           display: block;
+           opacity: 1;
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(1):checked ~ .carousel__indicators .carousel__indicator:nth-of-type(1) {
+           opacity: 1;
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(2):checked ~ .carousel__track {
+           -webkit-transform: translateX(-100%);
+           transform: translateX(-100%);
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(2):checked ~ .carousel__slide:nth-of-type(2) {
+           -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+           transition: opacity 0.5s, -webkit-transform 0.5s;
+           transition: opacity 0.5s, transform 0.5s;
+           transition: opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
+           top: 0;
+           left: 0;
+           right: 0;
+           opacity: 1;
+           -webkit-transform: scale(1);
+           transform: scale(1);
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(2):checked ~ .carousel__controls:nth-of-type(2) {
+           display: block;
+           opacity: 1;
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(2):checked ~ .carousel__indicators .carousel__indicator:nth-of-type(2) {
+           opacity: 1;
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(3):checked ~ .carousel__track {
+           -webkit-transform: translateX(-200%);
+           transform: translateX(-200%);
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(3):checked ~ .carousel__slide:nth-of-type(3) {
+           -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+           transition: opacity 0.5s, -webkit-transform 0.5s;
+           transition: opacity 0.5s, transform 0.5s;
+           transition: opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
+           top: 0;
+           left: 0;
+           right: 0;
+           opacity: 1;
+           -webkit-transform: scale(1);
+           transform: scale(1);
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(3):checked ~ .carousel__controls:nth-of-type(3) {
+           display: block;
+           opacity: 1;
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(3):checked ~ .carousel__indicators .carousel__indicator:nth-of-type(3) {
+           opacity: 1;
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(4):checked ~ .carousel__track {
+           -webkit-transform: translateX(-300%);
+           transform: translateX(-300%);
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(4):checked ~ .carousel__slide:nth-of-type(4) {
+           -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+           transition: opacity 0.5s, -webkit-transform 0.5s;
+           transition: opacity 0.5s, transform 0.5s;
+           transition: opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
+           top: 0;
+           left: 0;
+           right: 0;
+           opacity: 1;
+           -webkit-transform: scale(1);
+           transform: scale(1);
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(4):checked ~ .carousel__controls:nth-of-type(4) {
+           display: block;
+           opacity: 1;
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(4):checked ~ .carousel__indicators .carousel__indicator:nth-of-type(4) {
+           opacity: 1;
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(5):checked ~ .carousel__track {
+           -webkit-transform: translateX(-400%);
+           transform: translateX(-400%);
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(5):checked ~ .carousel__slide:nth-of-type(5) {
+           -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+           transition: opacity 0.5s, -webkit-transform 0.5s;
+           transition: opacity 0.5s, transform 0.5s;
+           transition: opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
+           top: 0;
+           left: 0;
+           right: 0;
+           opacity: 1;
+           -webkit-transform: scale(1);
+           transform: scale(1);
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(5):checked ~ .carousel__controls:nth-of-type(5) {
+           display: block;
+           opacity: 1;
+           }
+           main .page-container:nth-child(5) .carousel__activator:nth-of-type(5):checked ~ .carousel__indicators .carousel__indicator:nth-of-type(5) {
+           opacity: 1;
+           }
+           main .page-container:nth-child(5) .carousel__control {
+           height: 30px;
+           width: 30px;
+           margin-top: -15px;
+           top: 50%;
+           position: absolute;
+           display: block;
+           cursor: pointer;
+           border-width: 5px 5px 0 0;
+           border-style: solid;
+           border-color: #000;
+           opacity: 0.35;
+           outline: 0;
+           z-index: 3;
+           }
+           main .page-container:nth-child(5) .carousel__control:hover {
+           opacity: 1;
+           }
+           main .page-container:nth-child(5) .carousel__control--backward {
+           left: 10px;
+           -webkit-transform: rotate(-135deg);
+           transform: rotate(-135deg);
+           }
+           main .page-container:nth-child(5) .carousel__control--forward {
+           right: 10px;
+           -webkit-transform: rotate(45deg);
+           transform: rotate(45deg);
+           }
+           main .page-container:nth-child(5) .carousel__indicators {
+           position: absolute;
+           bottom: 20px;
+           width: 100%;
+           text-align: center;
+           }
+           main .page-container:nth-child(5) .carousel__indicator {
+           height: 5px;
+           width: 15px;
+           display: inline-block;
+           z-index: 2;
+           cursor: pointer;
+           opacity: 0.35;
+           margin: 0 2.5px 0 2.5px;
+           }
+           main .page-container:nth-child(5) .carousel__indicator:hover {
+           opacity: 0.75;
+           }
+           main .page-container:nth-child(5) .carousel__track {
+           position: absolute;
+           top: 0;
+           right: 0;
+           bottom: 0;
+           left: 0;
+           padding: 0;
+           margin: 0;
+           -webkit-transition: -webkit-transform 0.5s ease 0s;
+           transition: -webkit-transform 0.5s ease 0s;
+           transition: transform 0.5s ease 0s;
+           transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
+           }
+           main .page-container:nth-child(5) .carousel__track .carousel__slide {
+           display: -webkit-box;
+           display: -ms-flexbox;
+           display: flex;
+           -ms-flex-wrap: no-wrap;
+           flex-wrap: no-wrap;
+           -webkit-box-pack: center;
+           -ms-flex-pack: center;
+           justify-content: center;
+           -webkit-box-align: center;
+           -ms-flex-align: center;
+           align-items: center;
+           top: 0;
+           left: 0;
+           right: 0;
+           opacity: 1;
+           }
+           main .page-container:nth-child(5) .carousel__track .carousel__slide:nth-of-type(1) {
+           -webkit-transform: translateX(0%);
+           transform: translateX(0%);
+           }
+           main .page-container:nth-child(5) .carousel__track .carousel__slide:nth-of-type(2) {
+           -webkit-transform: translateX(100%);
+           transform: translateX(100%);
+           }
+           main .page-container:nth-child(5) .carousel__track .carousel__slide:nth-of-type(3) {
+           -webkit-transform: translateX(200%);
+           transform: translateX(200%);
+           }
+           main .page-container:nth-child(5) .carousel__track .carousel__slide:nth-of-type(4) {
+           -webkit-transform: translateX(300%);
+           transform: translateX(300%);
+           }
+           main .page-container:nth-child(5) .carousel__track .carousel__slide:nth-of-type(5) {
+           -webkit-transform: translateX(400%);
+           transform: translateX(400%);
+           }
+           main .page-container:nth-child(5) .carousel--scale .carousel__slide {
+           -webkit-transform: scale(0);
+           transform: scale(0);
+           }
+           main .page-container:nth-child(5) .carousel__slide {
+           height: 100%;
+           position: absolute;
+           overflow-y: auto;
+           opacity: 0;
+           }
+           * {
+           -webkit-box-sizing: border-box;
+           box-sizing: border-box;
+           }
+           main .page-container:nth-child(5) .carousel-container {
+           display: inline-block;
+           }
+           main .page-container:nth-child(5) .my-carousel {
+           border-radius: 5px;
+           margin: 0px;
+           }
+           main .page-container:nth-child(5) .carousel__slide {
+           overflow: hidden;
+           }
+           main .page-container:nth-child(5) .carousel--thumb .carousel__indicator {
+           height: 30px;
+           width: 30px;
+           }
+           h2,
+           h3 {
+           color: #192866;
+           }
+           main .page-container:nth-child(5) .carousel__indicator {
+           background-color: #192866;
+           }
+           main .page-container:nth-child(5) .carousel__slide:nth-of-type(1),
+           .carousel--thumb .carousel__indicators .carousel__indicator:nth-of-type(1) {
+           background-size: cover;
+           background-position: center;
+           }
+           main .page-container:nth-child(5) .carousel__slide:nth-of-type(2),
+           main .page-container:nth-child(5) .carousel--thumb .carousel__indicators .carousel__indicator:nth-of-type(2) {
+           background-size: cover;
+           background-position: center;
+           }
+           main .page-container:nth-child(5) .carousel__slide:nth-of-type(3),
+           main .page-container:nth-child(5) .carousel--thumb .carousel__indicators .carousel__indicator:nth-of-type(3) {
+           background-size: cover;
+           background-position: center;
+           }
+           main .page-container:nth-child(5) .carousel__slide:nth-of-type(4),
+           main .page-container:nth-child(5) .carousel--thumb .carousel__indicators .carousel__indicator:nth-of-type(4) {
+           background-size: cover;
+           background-position: center;
+           }
+           main .page-container:nth-child(5) .carousel__slide:nth-of-type(5),
+           main .page-container:nth-child(5) .carousel--thumb .carousel__indicators .carousel__indicator:nth-of-type(5) {
+           background-size: cover;
+           background-position: center;
+           }
+           }#testimonial-carousel {
+           background: #6BCEF386;
+           padding: 85px 0px;
+           }
+           @media (min-width: 1400px) {
+           main .page-container:nth-child(5) .carousel .card2 {
+           display: -webkit-box;
+           display: -ms-flexbox;
+           display: flex;
+           }
+           main .page-container:nth-child(5) .carousel .card:first-child {
+           margin-left: 38px !important;
+           }
+           main .page-container:nth-child(5) .carousel .card:last-child {
+           margin-right: 38px !important;
+           }
+         }
+    </style></style>
+</head>
+<body>
+    
+</body>
+</html>
