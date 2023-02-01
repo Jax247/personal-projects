@@ -1,0 +1,16 @@
+GET http://localhost:5001/general/user/all
+
+###
+
+GET http://localhost:5001/client/products/all
+
+###
+
+GET http://localhost:5001/client/transactions HTTP/1.1
+content-type: application/json
+
+{"sort":{"field":"userId","sort": "desc"},"page": 1, "pageSize": 20,"search":"63701cc1f032390a34000322"}
+
+###
+
+GET http://localhost:5001/client/geography HTTP/1.1
