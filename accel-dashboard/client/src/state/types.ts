@@ -1,4 +1,5 @@
 export type UserType = {
+  _id: string;
   name: string;
   email: string;
   password: string;
@@ -78,17 +79,30 @@ type DailyData = {
   totalUnits: number;
 };
 
+type SalesByCategory = {
+  shoes: number;
+    clothing: number;
+    accesssories: number;
+    misc: number;
+}
+
 export type YearlyStat = {
   totalCustomers: number;
-  yarlySalesTotal: number;
+  yearlySalesTotal: number;
   yearlyTotalSoldUnits: number;
   year: number;
   monthlyData: Array<MonthlyData>;
   dailyData: Array<DailyData>;
-  salesByCategory: {
-    shoes: number;
-    clothing: number;
-    accesssories: number;
-    misc: number;
-  };
+  salesByCategory: SalesByCategory
 };
+
+export type DashboardApiRes = {
+  currentMonthStats: MonthlyData;
+  monthlyData: Array<MonthlyData>;
+  salesByCategory: SalesByCategory;
+  totalCustomers: number;
+  yearlySalesTotal: number;
+  yearlyTotalSoldUnits: number;
+  transactions: TransactionType[];
+  todaysStats: DailyData
+}
