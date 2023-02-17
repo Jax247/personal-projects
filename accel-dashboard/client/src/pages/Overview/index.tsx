@@ -16,10 +16,10 @@ const Overview = () => {
     <div className="main-content-wrapper">
       <Box>
         <Header
-          title="Transactions"
-          subtitle="List of Transactions for Records"
+          title="Overview"
+          subtitle="Yearly Sales Data for Records"
         />
-        <Box height="80vh" sx={{}}>
+        <Box height="80vh" sx={{pb: '100px',}}>
             {/* Switches between amount of units and sales */}
             <FormControl sx={{marginTop: "1rem"}}>
                 <InputLabel>Mode</InputLabel>
@@ -28,7 +28,7 @@ const Overview = () => {
                     <MenuItem value="sales">Sales</MenuItem>
                 </Select>
             </FormControl>
-          <OverviewLineChart mode={mode}/>
+          <OverviewLineChart mode={mode} isDashboard={false}/>
         </Box>
       </Box>
     </div>

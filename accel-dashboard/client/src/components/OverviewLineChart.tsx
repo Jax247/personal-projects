@@ -3,10 +3,11 @@ import React, { useMemo, useState } from "react";
 import { Datum, ResponsiveLine, Serie } from "@nivo/line";
 import { useGetSalesQuery } from "../state/api";
 import { YearlyStat } from "../state/types";
+import Loader from "../Loader";
 
 interface Iprops {
   mode: string;
-  isDashboard?: false;
+  isDashboard?: boolean;
 }
 const LineChart: React.FC<Iprops> = ({ mode, isDashboard }) => {
   const theme = useTheme();
@@ -21,7 +22,9 @@ const LineChart: React.FC<Iprops> = ({ mode, isDashboard }) => {
         color: color of line
         data: Array values of x,y coordinates
     */
-    if(!data) return []
+
+        if (!data ) return []
+
     const { monthlyData } = data as YearlyStat;
     const UnitDataLine: Serie[] = [
       {
@@ -66,7 +69,11 @@ const LineChart: React.FC<Iprops> = ({ mode, isDashboard }) => {
     );
 
     return [UnitDataLine, SalesDataLine];
-  }, [mode]);
+  }, [mode, data]);
+
+  if(isLoading) {
+    return <Loader/>
+  }
 
   return (
     <ResponsiveLine
@@ -100,7 +107,7 @@ const LineChart: React.FC<Iprops> = ({ mode, isDashboard }) => {
         },
         tooltip: {
           container: {
-            color: theme.palette.primary.main,
+            color: theme.palette.primary.light,
           },
         },
       }}
@@ -115,7 +122,7 @@ const LineChart: React.FC<Iprops> = ({ mode, isDashboard }) => {
       }}
       yFormat=" >-.2f"
       curve="catmullRom"
-      enableArea={isDashboard}
+    enableArea={isDashboard}
       axisTop={null}
       axisRight={null}
       axisBottom={{
@@ -140,7 +147,7 @@ const LineChart: React.FC<Iprops> = ({ mode, isDashboard }) => {
         legend: isDashboard
           ? ""
           : `Total ${mode === "sales" ? "Revenue" : "Units"} for Year`,
-        legendOffset: -50,
+        legendOffset: -60,
         legendPosition: "middle",
       }}
       enableGridX={false}
