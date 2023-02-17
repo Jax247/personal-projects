@@ -16,6 +16,9 @@ import {
   Overview,
   Daily,
   Monthly,
+  Breakdown,
+  AdminList,
+  Performance
 } from "./pages/";
 import { useAppDispatch, useAppSelector } from "./hooks";
 
@@ -39,7 +42,10 @@ function App() {
               <Route path="/transactions" element={<Transactions />} />
               <Route path="/daily" element={<Daily />} />
               <Route path="/monthly" element={<Monthly />} />
+              <Route path="/breakdown" element={<Breakdown />} />
+              <Route path="/performance" element={<Performance />} />
               <Route path="/faq" element={<FAQ />} />
+              <Route path="/admin" element={<AdminList />} />
               <Route path="/overview" element={<Overview />} />
               <Route path="/geography" element={<Geography />} />
               <Route path="/form" element={<AddContact />} />

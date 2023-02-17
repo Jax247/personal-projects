@@ -1,6 +1,5 @@
 .main-content-wrapper {
     padding: 1.5rem;
-    height: 100%;
 }
 
 .lds-dual-ring {
@@ -28,3 +27,12 @@
     }
   }
   
+  .react-datepicker-wrapper .react-datepicker__input-container input {
+    background: white;
+    text-align: center;
+    color: #0f0f0f;
+    font-size: 1.1em;
+    padding: .4rem 0rem;
+    border-radius: 11px;
+    border: none;
+}
