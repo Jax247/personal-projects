@@ -81,8 +81,6 @@ const getTransactions = async (req: Request, res: Response) => {
 
 const getGeography = async (_: Request, res: Response) => {
 
-
-
   try {
     // Use country data from user tables
 
