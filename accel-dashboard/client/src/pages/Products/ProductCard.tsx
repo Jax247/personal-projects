@@ -11,18 +11,18 @@ import {
 import React, { useState } from "react";
 import { ProductType } from "../../state/types";
 
-  interface Props {
-    data: ProductType;
-  };
+interface Props {
+  data: ProductType;
+}
 
-const ProductCard: React.FC<Props> = ({data}: Props) => {
+const ProductCard: React.FC<Props> = ({ data }: Props) => {
   // Mongoose Document
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const product = data
-  
-  return(
+  const product = data;
+
+  return (
     <Card
       sx={{
         backgroundImage: "none",
@@ -49,7 +49,11 @@ const ProductCard: React.FC<Props> = ({data}: Props) => {
         <Typography variant="body2">{product.description}</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => setIsExpanded(!isExpanded)}>
+        <Button
+          size="small"
+          sx={{color: theme.palette.grey[200]}}
+          onClick={() => setIsExpanded(!isExpanded)}
+        >
           See More
         </Button>
       </CardActions>
@@ -75,4 +79,4 @@ const ProductCard: React.FC<Props> = ({data}: Props) => {
     </Card>
   );
 };
-export default ProductCard
+export default ProductCard;

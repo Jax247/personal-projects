@@ -56,9 +56,8 @@ const Products: React.FC = () => {
     let newArr = [] as ProductType[];
 
     if (!isLoading) {
-      let data2 = data as Array<ProductType>;
 
-      newArr = sortProducts([...data2], sortedBy, false);
+      newArr = sortProducts([...data as Array<ProductType>], sortedBy, false);
     }
     setproductList(newArr);
 
@@ -67,8 +66,8 @@ const Products: React.FC = () => {
 
   useEffect(() => init(), [data, sortedBy]);
 
-  if(isLoading) {
-    return <Loader />
+  if (isLoading) {
+    return <Loader />;
   }
   if (error) {
     return null;
@@ -78,27 +77,22 @@ const Products: React.FC = () => {
     <div className="main-content-wrapper">
       <Box>
         <Header title="Products" subtitle="List of Products" />
-        {false ? (
-          <>
-            <SortSelect sortBy={sortedBy} changeSort={setSortedBy} />
-            <Box
-              display="grid"
-              gridTemplateColumns="repeat(4, minmax(0, 1fr))"
-              justifyContent="space-between"
-              rowGap={"20px"}
-              columnGap="1.3%"
-              sx={{
-                "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
-              }}
-            >
-              {productList?.map((item) => (
-                <ProductCard key={item._id} data={item} />
-              ))}
-            </Box>
-          </>
-        ) : (
-          <Loader />
-        )}
+
+        <SortSelect sortBy={sortedBy} changeSort={setSortedBy} />
+        <Box
+          display="grid"
+          gridTemplateColumns="repeat(4, minmax(0, 1fr))"
+          justifyContent="space-between"
+          rowGap={"20px"}
+          columnGap="1.3%"
+          sx={{
+            "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
+          }}
+        >
+          {productList.map((item) => (
+            <ProductCard key={item._id} data={item} />
+          ))}
+        </Box>
       </Box>
     </div>
   );
