@@ -14,7 +14,7 @@ interface ModeState {
 
 const initialState: ModeState = {
   mode: "dark",
-  user: "63701cc1f03239db6900011f"
+  user: "63701cc1f03239f09e00018a"
 };
 
 const sliceOptions = {
