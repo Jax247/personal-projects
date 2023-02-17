@@ -5,10 +5,15 @@ import helmet from "helmet";
 import mongoose from "mongoose";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import { GeneralRouter, ClientRouter, SalesRouter } from "./routes/";
+import {
+  GeneralRouter,
+  ClientRouter,
+  SalesRouter,
+  ManagementRouter,
+} from "./routes/";
 
 // Data injection
-// import { YearlyStats } from "./models/";
+// import { OverallStat } from "./models/";
 // import { dataOverallStat } from "./data/index";
 
 // Config Stuff
@@ -36,7 +41,7 @@ app.use(morgan("common"));
 
 // Routers
 app.use("/client", ClientRouter);
-// app.use("/management", managementRouter);
+app.use("/management", ManagementRouter);
 app.use("/general", GeneralRouter);
 app.use("/sales", SalesRouter);
 
@@ -54,6 +59,9 @@ const main = async () => {
       // ProductStat.insertMany(dataProductStat);
       // Transaction.insertMany(dataTransaction)
       // YearlyStats.insertMany(dataOverallStat)
+      // AffiliateStat.insertMany(dataAffiliateStat)
+      // OverallStat.insertMany(dataOverallStat)
+
     });
   } catch (e) {
     console.error(e);

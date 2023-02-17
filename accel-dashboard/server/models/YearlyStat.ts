@@ -13,7 +13,7 @@ type DailyData = {
   totalUnits: number;
 };
 
-export type YearlyStat = {
+export type YearlyStatType = {
   totalCustomers: number;
   yarlySalesTotal: number;
   yearlyTotalSoldUnits: number;

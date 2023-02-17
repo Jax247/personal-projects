@@ -14,3 +14,11 @@ content-type: application/json
 ###
 
 GET http://localhost:5001/client/geography HTTP/1.1
+
+###
+
+GET http://localhost:5001/management/performance/6371251df03239e680000033 HTTP/1.1
+
+###
+
+GET http://localhost:5001/general/dashboard HTTP/1.1
