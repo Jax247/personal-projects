@@ -9,6 +9,9 @@ import Geography from "./Geography";
 import Overview from "./Overview";
 import Daily from "./Daily";
 import Monthly from "./Monthly";
+import Breakdown from "./Breakdown";
+import AdminList from "./AdminList";
+import Performance from "./Performance";
 
 export {
   Dashboard,
@@ -21,5 +24,8 @@ export {
   Overview,
   Layout,
   Daily,
-  Monthly
+  Monthly,
+  Breakdown,
+  AdminList,
+  Performance
 };

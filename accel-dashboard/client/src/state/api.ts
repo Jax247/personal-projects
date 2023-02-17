@@ -6,6 +6,7 @@ import {
   TransactionApiParams,
   GeoEntry,
   YearlyStat,
+  DashboardApiRes,
 } from "./types";
 
 export declare interface ProductApiRes extends Array<ProductType> {}
@@ -18,7 +19,7 @@ export declare interface TransactionApiRes extends Array<{}> {
 export const Api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5001" }),
   reducerPath: "adminApi",
-  tagTypes: ["User", "Products", "Customers", "Transactions", "Geography", "Sales"],
+  tagTypes: ["User", "Products", "Customers", "Transactions", "Geography", "Sales", "Dashboard"],
   endpoints: (build) => ({
     getUser: build.query({
       query: (id: string) => `general/user/${id}`,
@@ -52,7 +53,19 @@ export const Api = createApi({
     getSales: build.query<YearlyStat, {}>({
       query: () =>  `sales/sales`,
       providesTags: ["Sales"],
-    })
+    }), 
+    getAdmins: build.query<Array<UserType>, {}>({
+      query: () => `management/admins`,
+      providesTags: ["User"]
+    }),
+    getPerformanceData: build.query({
+      query: (id: string) =>`management/performance/${id}`,
+      providesTags: ["User"]
+    }),
+    getDashboardData: build.query<DashboardApiRes, {}>({
+      query: () =>`general/dashboard`,
+      providesTags: ["Dashboard"]
+    }),
   }),
 });
 
@@ -89,5 +102,8 @@ export const {
   useGetAllItemsQuery,
   useGetTransactionsQuery,
   useGetGeographyQuery,
-  useGetSalesQuery
+  useGetSalesQuery,
+  useGetAdminsQuery,
+  useGetPerformanceDataQuery,
+  useGetDashboardDataQuery,
 } = Api;

@@ -4,14 +4,15 @@ import { Box, Typography, useTheme } from "@mui/material";
 type Iprops = {
   title: string;
   subtitle: string;
+  isDashboard?: boolean;
 };
 
-const Header = ({ title, subtitle }: Iprops) => {
+const Header = ({ title, subtitle,isDashboard }: Iprops) => {
   const theme = useTheme();
   // const colors = tokens(theme.palette.mode);
 
   return (
-    <Box mb={5} width="100%" >
+    <Box mb={isDashboard ? "0px" : 5} width="60%" >
       <Typography textAlign="left" variant="h2" color={theme.palette.secondary.light} fontWeight="bold" mb={1}>
         {title}
       </Typography>
