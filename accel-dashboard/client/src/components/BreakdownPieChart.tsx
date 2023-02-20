@@ -5,17 +5,25 @@ import { useGetSalesQuery } from "../state/api";
 import Loader from "../Loader";
 
 const BreakdownPieChart = ({ isDashboard = false }) => {
-  const { data, isLoading } = useGetSalesQuery('Sales');
+  const { data, isLoading } = useGetSalesQuery("Sales");
   const theme = useTheme();
 
-  if (!data || isLoading) return <Loader />
+  if (!data || isLoading) return <Loader />;
 
-  const colors = [
-    theme.palette.secondary.main,
-    theme.palette.secondary.light,
-    theme.palette.secondary.light,
-    theme.palette.secondary.main,
-  ];
+  const colors =
+    theme.palette.mode === "light"
+      ? [
+          '#4169e1',
+          theme.palette.secondary.light,
+          theme.palette.secondary.light,
+          '#4169e1',
+        ]
+      : [
+          theme.palette.secondary.main,
+          theme.palette.secondary.light,
+          theme.palette.secondary.light,
+          theme.palette.secondary.main,
+        ];
   const formattedData = Object.entries(data.salesByCategory).map(
     ([category, sales], i) => ({
       id: category,
@@ -28,9 +36,9 @@ const BreakdownPieChart = ({ isDashboard = false }) => {
   return (
     <Box
       height={isDashboard ? "400px" : "100%"}
-      width={undefined}
+      width={"100%"}
       minHeight={isDashboard ? "325px" : undefined}
-      minWidth={isDashboard ? "325px" : undefined}
+      minWidth={isDashboard ? "250px" : undefined}
       position="relative"
     >
       <ResponsivePie
@@ -64,7 +72,7 @@ const BreakdownPieChart = ({ isDashboard = false }) => {
           },
           tooltip: {
             container: {
-              color: theme.palette.primary.main,
+              color: theme.palette.secondary.main,
             },
           },
         }}
@@ -84,12 +92,15 @@ const BreakdownPieChart = ({ isDashboard = false }) => {
         }}
         enableArcLinkLabels={!isDashboard}
         arcLinkLabelsTextColor={theme.palette.secondary.light}
-        arcLinkLabelsThickness={2}
+        arcLinkLabelsThickness={3}
         arcLinkLabelsColor={{ from: "color" }}
         arcLabelsSkipAngle={10}
         arcLabelsTextColor={{
           from: "color",
-          modifiers: [["darker", 2]],
+          modifiers:
+            theme.palette.mode === "light"
+              ? [["brighter", 5]]
+              : [["darker", 2]],
         }}
         legends={[
           {

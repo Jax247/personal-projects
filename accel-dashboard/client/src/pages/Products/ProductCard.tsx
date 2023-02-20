@@ -51,10 +51,15 @@ const ProductCard: React.FC<Props> = ({ data }: Props) => {
       <CardActions>
         <Button
           size="small"
-          sx={{color: theme.palette.grey[200]}}
+          sx={{
+            color:
+              theme.palette.mode === "dark"
+                ? theme.palette.grey[50]
+                : theme.palette.secondary.light,
+          }}
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          See More
+          Read {isExpanded ? "Less" : "More"}
         </Button>
       </CardActions>
       <Collapse
@@ -62,10 +67,10 @@ const ProductCard: React.FC<Props> = ({ data }: Props) => {
         timeout="auto"
         unmountOnExit
         sx={{
-          color: theme.palette.grey[300],
+          color: theme.palette.secondary.light,
         }}
       >
-        <CardContent>
+        <CardContent >
           <Typography>id: {product._id}</Typography>
           <Typography>Supply Left: {product.supply}</Typography>
           <Typography>

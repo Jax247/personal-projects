@@ -107,7 +107,7 @@ const LineChart: React.FC<Iprops> = ({ mode, isDashboard }) => {
         },
         tooltip: {
           container: {
-            color: theme.palette.primary.light,
+            color: theme.palette.secondary.dark,
           },
         },
       }}
@@ -120,6 +120,7 @@ const LineChart: React.FC<Iprops> = ({ mode, isDashboard }) => {
         stacked: false,
         reverse: false,
       }}
+      colors={theme.palette.secondary.light}
       yFormat=" >-.2f"
       curve="catmullRom"
     enableArea={isDashboard}

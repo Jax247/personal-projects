@@ -63,9 +63,10 @@ const Geography = () => {
           },
         }}
         margin={{ top: 0, right: 0, bottom: 0, left: -30 }}
-        // colors="blues"
+        colors={theme.palette.mode === 'dark' ? "YlGnBu" : "PuOr"}
+        enableGraticule={theme.palette.mode === 'light'}
         domain={[ 0, 55 ]}
-        unknownColor="#666666"
+        unknownColor="#ccc"
         label="properties.name"
         valueFormat=".2s"
         projectionScale={150}

@@ -104,7 +104,7 @@ function reverseTokens(tokensDark: tokenMap): tokenMap {
 
 export const tokensLight = reverseTokens(tokensDark);
 
-console.log(tokensLight)
+console.log(" Reversed Tokens", tokensLight)
 
 
 
@@ -138,17 +138,18 @@ export const themeSettings = (mode: string) => {
             // palette values for light mode
             primary: {
               ...tokensLight.primary,
-              main: tokensDark.grey[50],
-              light: tokensDark.grey[100],
+              main: tokensDark.primary[50],
+              light: tokensDark.primary[100],
+              dark: tokensDark.grey[50]
             },
             secondary: {
               ...tokensLight.secondary,
-              main: tokensDark.secondary[600],
-              light: tokensDark.secondary[700],
+              main: '#192866', //tokensDark.primary[100],
+              light: '#192866',//'#0D5250',
             },
             neutral: {
               ...tokensLight.grey,
-              main: tokensDark.grey[500],
+              main: tokensDark.grey[50],
             },
             background: {
               default: '#fff',
