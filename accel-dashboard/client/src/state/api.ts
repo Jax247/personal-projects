@@ -16,8 +16,10 @@ export declare interface TransactionApiRes extends Array<{}> {
   total: number;
 }
 
+const baseUrl = "https://lush-beef-production.up.railway.app/"  //|| "http://localhost:5001"
+
 export const Api = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5001" }),
+  baseQuery: fetchBaseQuery({ baseUrl }),
   reducerPath: "adminApi",
   tagTypes: ["User", "Products", "Customers", "Transactions", "Geography", "Sales", "Dashboard"],
   endpoints: (build) => ({
