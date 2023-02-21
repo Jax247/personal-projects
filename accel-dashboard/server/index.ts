@@ -11,10 +11,11 @@ import {
   SalesRouter,
   ManagementRouter,
 } from "./routes/";
+// import { dataUser, dataProduct, dataProductStat, dataTransaction, dataOverallStat, dataAffiliateStat } from "./data";
+// import { User, Product, ProductStat, Transaction, YearlyStats, AffiliateStat } from "./models";
 
-// Data injection
-// import { OverallStat } from "./models/";
-// import { dataOverallStat } from "./data/index";
+// Data injection 
+
 
 // Config Stuff
 dotenv.config();
@@ -23,7 +24,7 @@ dotenv.config();
 const PORT = process.env.PORT || 9000;
 // Add a list of allowed origins.
 // If you have more origins you would like to add, you can add them to the array below.
-const allowedOrigins = ["http://localhost:3000"];
+const allowedOrigins = ["https://acceldash.netlify.app", "http://localhost:3000"];
 
 const CorsOptions: cors.CorsOptions = {
   origin: allowedOrigins,

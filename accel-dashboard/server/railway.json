@@ -1,0 +1,6 @@
+{
+    "deploy": {
+      "startCommand": "yarn start",
+      "restartPolicyType": "NEVER"
+    }
+  }
