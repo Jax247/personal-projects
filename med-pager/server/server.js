@@ -4,7 +4,6 @@ const cors = require('cors');
 const PORT = process.env.PORT || 4000;
 const auth_routes = require('./routes/auth');
 
-// Express Boilerplate
 require('dotenv').config();
 app.use(cors());
 app.use(express.json());
