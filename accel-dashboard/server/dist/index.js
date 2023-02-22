@@ -13,7 +13,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const routes_1 = require("./routes/");
 dotenv_1.default.config();
 const PORT = process.env.PORT || 9000;
-const allowedOrigins = ["http://localhost:3000"];
+const allowedOrigins = ["https://acceldash.netlify.app", "http://localhost:3000"];
 const CorsOptions = {
     origin: allowedOrigins,
 };
