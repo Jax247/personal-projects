@@ -19,10 +19,10 @@ const BreakdownPieChart = ({ isDashboard = false }) => {
           "#4169e1",
         ]
       : [
-          theme.palette.secondary.main,
-          theme.palette.secondary.light,
-          theme.palette.secondary.light,
-          theme.palette.secondary.main,
+        "#BDC2FF",
+        theme.palette.secondary.main,
+        theme.palette.secondary.main,
+        "#BDC2FF",
         ];
   const formattedData = Object.entries(data.salesByCategory).map(
     ([category, sales], i) => ({
