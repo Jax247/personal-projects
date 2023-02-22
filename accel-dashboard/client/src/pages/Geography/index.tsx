@@ -58,7 +58,9 @@ const Geography = () => {
           },
           tooltip: {
             container: {
-              color: theme.palette.primary.main,
+              color: theme.palette.mode === "light"
+              ? theme.palette.secondary.light
+              : theme.palette.primary.main,
             },
           },
         }}

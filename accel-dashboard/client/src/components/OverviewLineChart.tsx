@@ -107,7 +107,9 @@ const LineChart: React.FC<Iprops> = ({ mode, isDashboard }) => {
         },
         tooltip: {
           container: {
-            color: theme.palette.secondary.dark,
+            color: theme.palette.mode === "light"
+            ? theme.palette.secondary.light
+            : theme.palette.primary.main,
           },
         },
       }}

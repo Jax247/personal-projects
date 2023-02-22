@@ -13,10 +13,10 @@ const BreakdownPieChart = ({ isDashboard = false }) => {
   const colors =
     theme.palette.mode === "light"
       ? [
-          '#4169e1',
+          "#4169e1",
           theme.palette.secondary.light,
           theme.palette.secondary.light,
-          '#4169e1',
+          "#4169e1",
         ]
       : [
           theme.palette.secondary.main,
@@ -72,7 +72,10 @@ const BreakdownPieChart = ({ isDashboard = false }) => {
           },
           tooltip: {
             container: {
-              color: theme.palette.secondary.main,
+              color:
+                theme.palette.mode === "light"
+                  ? theme.palette.secondary.light
+                  : theme.palette.primary.main,
             },
           },
         }}
