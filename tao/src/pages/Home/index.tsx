@@ -69,7 +69,7 @@ const Center = styled.div<{ active: boolean; bp: boolean }>`
     display: block;
     fill: ${(props) =>
       props.active ? props.theme.primary : props.theme.secondary};
-    /* animation: ${RotateAni} infinite 1.5s linear; */
+    animation: ${RotateAni} infinite 1.5s linear;
   }
   & > *:last-child {
     text-align: center;
