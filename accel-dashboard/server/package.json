@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node ./dist/index.js",
     "dev": "tsc-watch --noClear --onSuccess \"node ./dist/index.js\"",
+    "build" : "tsc",
     "tdev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
     "dev-server": "tsc-watch --noClear -p ./src/tsconfig.json "
   },
