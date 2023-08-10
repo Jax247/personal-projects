@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./dist/index.js",
+    "build": "tsc",
     "dev": "tsc-watch --noClear --onSuccess \"node ./dist/index.js\""
   },
   "dependencies": {
