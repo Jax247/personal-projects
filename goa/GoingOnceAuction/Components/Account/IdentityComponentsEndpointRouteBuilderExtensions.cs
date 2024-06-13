@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using GoingOnceAuction.Components.Account.Pages;
 using GoingOnceAuction.Components.Account.Pages.Manage;
-using GoingOnceAuction.Data;
+using GoingOnceAuction.Models;
 
 namespace Microsoft.AspNetCore.Routing;
 
