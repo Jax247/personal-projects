@@ -1,28 +1,17 @@
 import { Router, Request, Response } from "express";
 import * as dotenv from "dotenv";
-import {
-  Configuration,
-  CreateImageRequestResponseFormatEnum,
-  CreateImageRequestSizeEnum,
-  OpenAIApi,
-} from "openai";
+import openai from "../lib/open-ai";
 // import 
 dotenv.config();
 
 type ImageRequestType = {
   prompt: string;
-  size?: CreateImageRequestSizeEnum;
+  size?: "1024x1024" | "512x512";
   n?: number | 1;
-  format?: CreateImageRequestResponseFormatEnum;
+  format?: "b64_json" | "url";
 };
 
 const ImgGenRouter = Router();
-
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
-const openai = new OpenAIApi(configuration);
 
 ImgGenRouter.get("/", (_, res) => {
   res.status(200).json({ message: "Healthy" });
@@ -35,7 +24,8 @@ ImgGenRouter.post("/dalle/create", async (req: Request, res: Response) => {
 
     console.log("Image Request prompt: ", prompt);
 
-    const aiResponse = await openai.createImage({
+    const aiResponse = await openai.images.generate({
+      model: "dall-e-3",
       prompt,
       n: n ?? 1,
       size: size ?? "1024x1024",
@@ -44,7 +34,7 @@ ImgGenRouter.post("/dalle/create", async (req: Request, res: Response) => {
 
     console.log("Response from OpenAI: ", aiResponse);
 
-    const imageDeployments = aiResponse.data.data[0];
+    const imageDeployments = aiResponse.data[0];
 
     const image = imageDeployments.b64_json ?? imageDeployments.url;
 
