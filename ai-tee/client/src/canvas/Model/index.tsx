@@ -17,7 +17,7 @@ interface GLTFRes extends GLTF {
 
 const index = () => {
   const snap = useSnapshot(state);
-  const { nodes, materials } = useGLTF("./shirt_baked.glb") as GLTFRes;
+  const { nodes, materials } = useGLTF("./shirt_baked.glb") as unknown as GLTFRes;
 
   console.log("Nodes", nodes);
   console.log("Materials", materials);
@@ -48,9 +48,9 @@ const index = () => {
             rotation={[0, 0, 0]}
             scale={0.15}
             map={logoTexture}
-            map-anisotrophy={16}
+            // anisotrophy={16}
             depthTest={false}
-            depthWrite
+            // depthWrite={true}
           />
         )}
 
