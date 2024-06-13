@@ -85,8 +85,10 @@ const Customizer = () => {
         size: "1024x1024",
       };
 
+      const base = "http://localhost:9000/"
+
       const imageData = await fetch(
-        "http://localhost:9000/img-gen/dalle/create",
+        `${base}img-gen/dalle/create`,
         {
           method: "POST",
           headers: {
