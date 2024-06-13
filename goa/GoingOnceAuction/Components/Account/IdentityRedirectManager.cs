@@ -1,5 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore.Components;
+using GoingOnceAuction.Models;
+
 
 namespace GoingOnceAuction.Components.Account;
 

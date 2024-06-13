@@ -1,0 +1,29 @@
+@page "/Items"
+
+<h1>Item List</h1>
+
+<form>
+    <input @bind="ItemName" placeholder="Title" type="text"/>
+    <input @bind="Description" placeholder="Description" type="text"/>
+    <input @bind="Price"placeholder="Title" type="text"/>
+</form>
+
+<div class="action-buttons">
+    <button class="create-button btn btn-primary" onclick="CreateItem()">Create Nnew Item</button>
+</div>
+
+@code {
+    
+
+    // Add Item to list
+
+    public string ItemName = "";
+    public string Description = "";
+    public decimal Price;
+
+    public void CreateItem()
+    {
+       
+
+    }
+}

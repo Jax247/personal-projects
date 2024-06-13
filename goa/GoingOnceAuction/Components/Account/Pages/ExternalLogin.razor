@@ -1,4 +1,5 @@
 ﻿@page "/Account/ExternalLogin"
+@namespace GoingOnceAuction.Components.Account.Pages
 
 @using System.ComponentModel.DataAnnotations
 @using System.Security.Claims
@@ -7,6 +8,7 @@
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.WebUtilities
 @using GoingOnceAuction.Data
+@using GoingOnceAuction.Models
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager

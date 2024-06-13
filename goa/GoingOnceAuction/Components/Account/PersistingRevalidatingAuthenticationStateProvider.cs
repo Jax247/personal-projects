@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using GoingOnceAuction.Client;
-using GoingOnceAuction.Data;
+using GoingOnceAuction.Models;
 
 namespace GoingOnceAuction.Components.Account;
 

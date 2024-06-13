@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using GoingOnceAuction.Data;
+using GoingOnceAuction.Models;
 
 namespace GoingOnceAuction.Components.Account;
 
