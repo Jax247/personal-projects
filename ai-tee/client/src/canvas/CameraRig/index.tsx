@@ -10,19 +10,19 @@ const index = ({ children }: Props) => {
   const snap = useSnapshot(state);
   const groupRef = useRef<THREE.Group | null>(null);
   const group = groupRef.current!;
+  const mdbp = window.innerWidth >= 600;
+  const lgbp = window.innerWidth >= 1250;
+  let targetPos: [number, number, number] = [0, 0, 2]; //   set initial position
 
   useFrame((state, delta) => {
-    const mdbp = window.innerWidth <= 600;
-    const lgbp = window.innerWidth <= 1250;
 
-    //   set initial position
-    let targetPos: [number, number, number] = [-0.4, 0, 2];
+
     if (snap.home) {
-      if (lgbp) targetPos = [0, 0, 2];
       if (mdbp) targetPos = [0, 0.2, 2.5];
+      if (lgbp) targetPos = [-0.4, 0, 2];;
     } else {
-      if (lgbp) targetPos = [0, 0, 2];
       if (mdbp) targetPos = [0, 0, 2.5];
+      if (lgbp) targetPos = [0, 0, 2];
     }
     //   Set Camera pos
     easing.damp3(state.camera.position, targetPos, 0.25, delta);
