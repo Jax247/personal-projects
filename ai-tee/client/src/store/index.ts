@@ -16,7 +16,7 @@ type InitialState =
   isLogoTexture: true, // Are we displaying logo
   isFullTexture: false,
   logoDecal: "./threejs.png",
-  fullDecal: "./threejs.png",
+  fullDecal: "./space.jpg",
 }
 
 const state = proxy(init);

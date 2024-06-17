@@ -85,7 +85,7 @@ const Customizer = () => {
         size: "1024x1024",
       };
 
-      const base = "http://localhost:9000/"
+      const base = "http://localhost:5000/"
 
       const imageData = await fetch(
         `${base}img-gen/dalle/create`,
@@ -226,7 +226,7 @@ const Customizer = () => {
               handler={() => {
                 state.home = true;
               }}
-              styles="w-fit px-4 py-2.5 font-bold text-sm"
+              styles="w-fit px-4 py-2 rounded-md font-bold text-sm"
             />
           </motion.div>
           <motion.div

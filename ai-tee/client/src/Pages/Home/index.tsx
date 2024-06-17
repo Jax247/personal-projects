@@ -41,7 +41,7 @@ const Home = () => {
                 handler={() => {
                   state.home = false;
                 }}
-                styles="w-fit px-4 py-5 font-bold text-sm"
+                styles="w-fit px-4 py-2 rounded-md mt-3 font-bold text-sm"
               />
             </motion.div>
           </motion.div>
