@@ -85,7 +85,7 @@ const Customizer = () => {
         size: "1024x1024",
       };
 
-      const base = "http://localhost:5000/"
+      const base = "https://malleable-tee-production.up.railway.app/" //"http://localhost:9000/"
 
       const imageData = await fetch(
         `${base}img-gen/dalle/create`,
